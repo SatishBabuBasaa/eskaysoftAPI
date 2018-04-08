@@ -1,16 +1,16 @@
 package com.rest.eskaysoftAPI.entity;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class SchedulesEntity {
   
-    private ArrayList<Schedule> schedules;
+    private List<Schedule> schedules;
   
-    public ArrayList<Schedule> getSchedule() {
+    public List<Schedule> getSchedule() {
         return schedules;
     }
   
-    public void setSchedules(ArrayList<Schedule> schedules) {
+    public void setSchedules(List<Schedule> schedules) {
         this.schedules = schedules;
     }
 }

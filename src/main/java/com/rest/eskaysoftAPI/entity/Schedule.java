@@ -3,20 +3,25 @@ package com.rest.eskaysoftAPI.entity;
 
 import java.io.Serializable;
 import java.util.HashMap;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
   
+@Entity
+@Table(name = "schedules")
 public class Schedule implements Serializable {
   
     private static final long serialVersionUID = 1L;
   
-    private int id;
+    private Long id;
     private String scheduleName;
     private int scheduleIndex;
     private HashMap<Integer,String> scheduleType;
     
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getScheduleName() {
