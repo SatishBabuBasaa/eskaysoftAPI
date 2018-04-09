@@ -21,8 +21,8 @@ import com.rest.eskaysoftAPI.entity.SchedulesEntity;
 import com.rest.eskaysoftAPI.service.ScheduleService;
 import com.rest.eskaysoftAPI.util.util;
 
-@Resource(name = "scheduleResource")
-@Path("/api/v1/schedules")
+@Resource(name = "schedules")
+@Path("/schedules")
 public class ScheduleResource {
 	private static Map<Long, Schedule> DB = new HashMap<>();
 
