@@ -26,8 +26,6 @@ import com.rest.eskaysoftAPI.util.util;
 public class ScheduleResource {
 	private static Map<Long, Schedule> DB = new HashMap<>();
 
-	private static HashMap<Integer, String> scheduleType = new HashMap<Integer, String>();
-
 	@Autowired
 	ScheduleService scheduleService;
 
@@ -75,25 +73,4 @@ public class ScheduleResource {
 		return Response.status(404).build();
 	}
 
-	static {
-		scheduleType.put(100, "Asserts");
-		scheduleType.put(101, "Liabilities");
-		scheduleType.put(102, "Trading");
-		scheduleType.put(102, "Profit & Loss");
-
-		Schedule schedule1 = new Schedule();
-		schedule1.setId(new Long(1));
-		schedule1.setScheduleIndex(1);
-		schedule1.setScheduleName("Wick");
-		schedule1.setScheduleType(scheduleType);
-
-		Schedule schedule2 = new Schedule();
-		schedule2.setId(new Long(2));
-		schedule2.setScheduleIndex(1);
-		schedule2.setScheduleName("Harry");
-		schedule2.setScheduleType(scheduleType);
-
-		DB.put(schedule1.getId(), schedule1);
-		DB.put(schedule2.getId(), schedule2);
-	}
 }
