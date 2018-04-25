@@ -1,7 +1,6 @@
 package com.rest.eskaysoftAPI.entity;
 
 import java.io.Serializable;
-import java.util.HashMap;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -113,3 +112,4 @@ public class States implements Serializable {
 		this.zone = zone;
 	}
 }
+

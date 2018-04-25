@@ -24,19 +24,20 @@ public class User implements Serializable {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+	@Column(name = "id")
+    private Long Id;
+	@Column(name = "first_name")
     @NotBlank
-    private String firstName;
-
+    private String FirstName;
+	@Column(name = "last_name")
     @NotBlank
-    private String lastName;
-    
+    private String LastName;
+    @Column(name = "password")
     @NotBlank
-    private String passwd;
-    
+    private String Password;
+    @Column(name= "dob")
     @NotBlank
-    private String dob;
+    private String DOB;
 
     @Column(nullable = false, updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
@@ -49,43 +50,43 @@ public class User implements Serializable {
     private Date updatedAt;
 
     public Long getId() {
-		return id;
+		return Id;
 	}
 
 	public void setId(Long id) {
-		this.id = id;
+		this.Id = id;
 	}
 
 	public String getFirstName() {
-		return firstName;
+		return FirstName;
 	}
 
 	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+		this.FirstName = firstName;
 	}
 
 	public String getLastName() {
-		return lastName;
+		return LastName;
 	}
 
 	public void setLastName(String lastName) {
-		this.lastName = lastName;
+		this.LastName = lastName;
 	}
 
-	public String getPasswd() {
-		return passwd;
+	public String getPassword() {
+		return Password;
 	}
 
-	public void setPasswd(String passwd) {
-		this.passwd = passwd;
+	public void setPassword(String passwd) {
+		this.Password = passwd;
 	}
 
-	public String getDob() {
-		return dob;
+	public String getDOB() {
+		return DOB;
 	}
 
-	public void setDob(String dob) {
-		this.dob = dob;
+	public void setDOB(String dob) {
+		this.DOB = dob;
 	}
 
 	public Date getCreatedAt() {

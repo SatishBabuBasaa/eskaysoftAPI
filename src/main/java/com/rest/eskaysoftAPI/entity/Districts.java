@@ -1,6 +1,7 @@
 package com.rest.eskaysoftAPI.entity;
 
 import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -57,3 +58,4 @@ public class Districts {
 		this.districtName = districtName;
 	}
 }
+

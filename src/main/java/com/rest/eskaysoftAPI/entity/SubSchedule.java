@@ -79,5 +79,4 @@ public class SubSchedule {
 	public void setDebit(float debit) {
 		this.debit = debit;
 	}
-
 }
