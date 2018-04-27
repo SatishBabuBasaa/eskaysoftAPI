@@ -2,7 +2,6 @@ package com.rest.eskaysoftAPI.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +17,7 @@ public class Schedule implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long scheduleId;
     private String scheduleName;
     private int scheduleIndex;
     private String scheduleType;
@@ -29,7 +28,7 @@ public class Schedule implements Serializable {
 
 	public Schedule(Long id, String scheduleName, int scheduleIndex, String scheduleType) {
 		super();
-		this.id = id;
+		this.scheduleId = id;
 		this.scheduleName = scheduleName;
 		this.scheduleIndex = scheduleIndex;
 		this.scheduleType = scheduleType;
@@ -46,14 +45,14 @@ public class Schedule implements Serializable {
 	 * @return the id
 	 */
 	public Long getId() {
-		return id;
+		return scheduleId;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
 	public void setId(Long id) {
-		this.id = id;
+		this.scheduleId = id;
 	}
 
 	/**
@@ -91,5 +90,3 @@ public class Schedule implements Serializable {
 		this.scheduleType = scheduleType;
 	}
 }
-
-	
