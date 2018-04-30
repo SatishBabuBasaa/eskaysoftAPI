@@ -17,36 +17,26 @@ public class Districts {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int districtId;
+	private Long districtId;
 
 	private String districtName;
-	private long stateId;
-	private States state;
 
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn
-	public States getStates() {
+	@JoinColumn(name = "stateId")
+	private States state;
+
+	/**
+	 * @return the state
+	 */
+	public States getState() {
 		return state;
 	}
 
-	public void setStates(States state) {
-		this.state = state;
-	}
-
-	@Column(name = "state_id")
-	public long getStateId() {
-		return stateId;
-	}
-
-	public void setStateId(long stateId) {
-		this.stateId = stateId;
-	}
-
-	public int getDistrictId() {
+	public Long getDistrictId() {
 		return districtId;
 	}
 
-	public void setDistrictId(int districtId) {
+	public void setDistrictId(Long districtId) {
 		this.districtId = districtId;
 	}
 

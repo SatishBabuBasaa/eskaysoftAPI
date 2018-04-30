@@ -1,7 +1,6 @@
 package com.rest.eskaysoftAPI.resource;
 
 import java.net.URISyntaxException;
-
 import javax.annotation.Resource;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -28,7 +27,7 @@ public class ScheduleResource {
 
 	@GET
 	@Produces("application/json")
-	public SchedulesEntity getAllSchedules() {
+	public SchedulesEntity getAllSchedule() {
 		return scheduleService.getSchedules();
 	}
 

@@ -17,7 +17,7 @@ public class States implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long stateId;
 	private String stateName;
-	private int stateCode;
+	private Long stateCode;
 	private String zone;
 
 	public Long getstateId() {
@@ -32,7 +32,8 @@ public class States implements Serializable {
 	}
 
 	/**
-	 * @param stateId the stateId to set
+	 * @param stateId
+	 *            the stateId to set
 	 */
 	public void setStateId(Long stateId) {
 		this.stateId = stateId;
@@ -46,7 +47,8 @@ public class States implements Serializable {
 	}
 
 	/**
-	 * @param stateName the stateName to set
+	 * @param stateName
+	 *            the stateName to set
 	 */
 	public void setStateName(String stateName) {
 		this.stateName = stateName;
@@ -55,18 +57,18 @@ public class States implements Serializable {
 	/**
 	 * @return the stateCode
 	 */
-	public int getStateCode() {
+	public Long getStateCode() {
 		return stateCode;
 	}
 
 	/**
-	 * @param stateCode the stateCode to set
+	 * @param stateCode
+	 *            the stateCode to set
 	 */
-	public void setStateCode(int stateCode) {
+	public void setStateCode(Long stateCode) {
 		this.stateCode = stateCode;
 	}
 
-	
 	/**
 	 * @return the zone
 	 */
@@ -75,7 +77,8 @@ public class States implements Serializable {
 	}
 
 	/**
-	 * @param zone the zone to set
+	 * @param zone
+	 *            the zone to set
 	 */
 	public void setZone(String zone) {
 		this.zone = zone;
@@ -96,14 +99,6 @@ public class States implements Serializable {
 		this.stateName = stateName;
 	}
 
-	public int getstateCode() {
-		return stateCode;
-	}
-
-	public void setstateCode(int stateCode) {
-		this.stateCode = stateCode;
-	}
-
 	public String getzone() {
 		return zone;
 	}
@@ -112,4 +107,3 @@ public class States implements Serializable {
 		this.zone = zone;
 	}
 }
-
