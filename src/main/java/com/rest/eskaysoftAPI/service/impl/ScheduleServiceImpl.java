@@ -3,9 +3,12 @@ package com.rest.eskaysoftAPI.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+<<<<<<< Updated upstream
 
 import javax.ws.rs.PUT;
 import javax.ws.rs.PathParam;
+=======
+>>>>>>> Stashed changes
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -48,4 +51,8 @@ public class ScheduleServiceImpl implements ScheduleService {
 		com.rest.eskaysoftAPI.entity.Schedule savedSchedule = scheduleDao.save(scheduleEntity);
 		return savedSchedule == null ? false : true;
 	}
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 }

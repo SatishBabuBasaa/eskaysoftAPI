@@ -89,4 +89,8 @@ public class Schedule implements Serializable {
 	public void setScheduleType(String scheduleType) {
 		this.scheduleType = scheduleType;
 	}
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes

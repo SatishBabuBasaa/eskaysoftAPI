@@ -48,4 +48,3 @@ public class Districts {
 		this.districtName = districtName;
 	}
 }
-

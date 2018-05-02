@@ -106,4 +106,8 @@ public class States implements Serializable {
 	public void setScheduleType(String zone) {
 		this.zone = zone;
 	}
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes
