@@ -100,4 +100,26 @@ public class States implements Serializable {
 		this.zone = zone;
 	}
 
+	/**
+	 * @return the serialversionuid
+	 */
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public String getstateName() {
+		return stateName;
+	}
+
+	public void setstateName(String stateName) {
+		this.stateName = stateName;
+	}
+
+	public String getzone() {
+		return zone;
+	}
+
+	public void setScheduleType(String zone) {
+		this.zone = zone;
+	}
 }
