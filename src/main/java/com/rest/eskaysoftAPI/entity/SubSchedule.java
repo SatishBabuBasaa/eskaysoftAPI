@@ -19,16 +19,13 @@ public class SubSchedule {
 	private String scheduleType;
 	private Long subScheduleIndex;
 	private float credit;
-	
-	
 
 	private float debit;
-
-	
 
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "scheduleId")
 	private Schedule schedule;
+
 	/**
 	 * @return the schedule
 	 */
@@ -37,17 +34,12 @@ public class SubSchedule {
 	}
 
 	/**
-	 * @param schedule the schedule to set
+	 * @param schedule
+	 *            the schedule to set
 	 */
 	public void setSchedule(Schedule schedule) {
 		this.schedule = schedule;
 	}
-
-
-
-	
-
-	
 
 	public Long getSubScheduleId() {
 		return subScheduleId;

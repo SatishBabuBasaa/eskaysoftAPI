@@ -1,9 +1,8 @@
-package com.rest.eskaysoftAPI.domain;
+package com.rest.eskaysoftAPI.dto;
 
 import java.io.Serializable;
 
-public class Schedule implements Serializable {
-
+public class ScheduleDTO implements Serializable {
 	/**
 	 * 
 	 */
@@ -13,18 +12,17 @@ public class Schedule implements Serializable {
 	private int ScheduleIndex;
 	private String ScheduleType;
 
-	public Schedule() {
-		
+	public ScheduleDTO() {
 	}
-	
-	public Schedule(Long id, String scheduleName, int scheduleIndex, String scheduleType) {
+
+	public ScheduleDTO(Long id, String scheduleName, int scheduleIndex, String scheduleType) {
 		Id = id;
 		ScheduleName = scheduleName;
 		ScheduleIndex = scheduleIndex;
 		ScheduleType = scheduleType;
 	}
-	
-	public Schedule(String scheduleName, int scheduleIndex, String scheduleType) {
+
+	public ScheduleDTO(String scheduleName, int scheduleIndex, String scheduleType) {
 		ScheduleName = scheduleName;
 		ScheduleIndex = scheduleIndex;
 		ScheduleType = scheduleType;
@@ -60,6 +58,5 @@ public class Schedule implements Serializable {
 
 	public void setScheduleType(String scheduleType) {
 		this.ScheduleType = scheduleType;
-
 	}
 }

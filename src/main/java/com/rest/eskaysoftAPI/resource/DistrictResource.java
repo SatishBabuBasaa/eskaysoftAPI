@@ -16,37 +16,37 @@ import javax.ws.rs.core.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.rest.eskaysoftAPI.dto.ScheduleDTO;
-import com.rest.eskaysoftAPI.service.ScheduleService;
+import com.rest.eskaysoftAPI.dto.DistrictDTO;
+import com.rest.eskaysoftAPI.service.DistrictService;
 import com.rest.eskaysoftAPI.util.util;
 
 /**
- * Resource for Schedules to create/update/get/delete
+ * Resource for Districts to create/update/get/delete
  * 
  * @author SuryaSree
  * @since 7th May, 2018
  *
  */
-@Resource(name = "schedules")
-@Path("/schedules")
-public class ScheduleResource {
+@Resource(name = "districts")
+@Path("/districts")
+public class DistrictResource {
 
 	@Autowired
-	ScheduleService scheduleService;
+	DistrictService districtsService;
 
 	/**
-	 * Returns all schedules
+	 * Returns all districts
 	 * 
 	 * @return
 	 */
 	@GET
 	@Produces("application/json")
-	public Response getAllSchedules() {
-		return util.buildResponse(scheduleService.getSchedules());
+	public Response getAllDistricts() {
+		return util.buildResponse(districtsService.getDistricts());
 	}
 
 	/**
-	 * Return the Schedule details for given id
+	 * Return the Districts details for given id
 	 * 
 	 * @param id
 	 * @return
@@ -55,49 +55,49 @@ public class ScheduleResource {
 	@GET
 	@Path("/{id}")
 	@Produces("application/json")
-	public Response getScheduleById(@PathParam("id") Long id) throws URISyntaxException {
-		ScheduleDTO schedule = scheduleService.getScheduleById(id);
-		return util.buildResponse(schedule);
+	public Response getDistrictsById(@PathParam("id") Long id) throws URISyntaxException {
+		DistrictDTO district = districtsService.getDistrictsById(id);
+		return util.buildResponse(district);
 	}
 
 	/**
-	 * Creates a schedule with given details
+	 * Creates a district with given details
 	 * 
-	 * @param schedule
+	 * @param district
 	 * @return
 	 * @throws URISyntaxException
 	 */
 	@POST
 	@Consumes("application/json")
 	@Produces("application/json")
-	public Response createSchedule(ScheduleDTO schedule) throws URISyntaxException {
-		if (schedule == null) {
+	public Response createDistrict(DistrictDTO district) throws URISyntaxException {
+		if (district == null) {
 			return Response.status(404).build();
 		}
-		scheduleService.createSchedule(schedule);
+		districtsService.createDistrict(district);
 		return Response.status(200).build();
 	}
 
 	/**
-	 * Update the Schedule details
+	 * Update the District details
 	 * 
-	 * @param scheduleDTO
+	 * @param districtDTO
 	 * @return
 	 * @throws URISyntaxException
 	 */
 	@PUT
 	@Consumes("application/json")
 	@Produces("application/json")
-	public Response updateSchedule(ScheduleDTO scheduleDTO) throws URISyntaxException {
-		scheduleDTO = scheduleService.updateSchedule(scheduleDTO);
-		if (scheduleDTO == null) {
+	public Response updateDistrict(DistrictDTO districtDTO) throws URISyntaxException {
+		districtDTO = districtsService.updateDistrict(districtDTO);
+		if (districtDTO == null) {
 			return Response.status(404).build();
 		}
 		return Response.status(200).build();
 	}
 
 	/**
-	 * Delete the Schedule
+	 * Delete the District
 	 * 
 	 * @param id
 	 * @return
@@ -105,10 +105,10 @@ public class ScheduleResource {
 	 */
 	@DELETE
 	@Path("/{id}")
-	public Response deleteSchedule(@PathParam("id") Long id) throws URISyntaxException {
-		ScheduleDTO scheduleDTO = scheduleService.getScheduleById(id);
-		if (scheduleDTO != null) {
-			boolean isDeleted = scheduleService.deleteSchedule(scheduleDTO);
+	public Response deleteDistrict(@PathParam("id") Long id) throws URISyntaxException {
+		DistrictDTO districtDTO = districtsService.getDistrictsById(id);
+		if (districtDTO != null) {
+			boolean isDeleted = districtsService.deleteDistrict(districtDTO);
 			if (isDeleted) {
 				return Response.status(200).build();
 			}

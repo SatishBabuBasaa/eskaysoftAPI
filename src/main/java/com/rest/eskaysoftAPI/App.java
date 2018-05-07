@@ -37,14 +37,13 @@ public class App extends SpringBootServletInitializer {
 
 	@Bean
 	public TomcatEmbeddedServletContainerFactory tomcatFactory() {
-	    return new TomcatEmbeddedServletContainerFactory() {
-	        @Override
-	        protected TomcatEmbeddedServletContainer getTomcatEmbeddedServletContainer(
-	                Tomcat tomcat) {
-	            tomcat.enableNaming();
-	            return super.getTomcatEmbeddedServletContainer(tomcat);
-	        }
-	    };
+		return new TomcatEmbeddedServletContainerFactory() {
+			@Override
+			protected TomcatEmbeddedServletContainer getTomcatEmbeddedServletContainer(Tomcat tomcat) {
+				tomcat.enableNaming();
+				return super.getTomcatEmbeddedServletContainer(tomcat);
+			}
+		};
 	}
 
 	@Bean

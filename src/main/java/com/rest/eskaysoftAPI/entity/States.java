@@ -12,7 +12,6 @@ import javax.persistence.Table;
 @Table(name = "states")
 public class States implements Serializable {
 	private static final long serialVersionUID = 1L;
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long stateId;
@@ -20,14 +19,31 @@ public class States implements Serializable {
 	private Long stateCode;
 	private String zone;
 
-	public Long getstateId() {
-		return stateId;
+	public States() {
+	}
+
+	public States(String stateName, Long stateCode, String zone) {
+		this.stateName = stateName;
+		this.stateCode = stateCode;
+		this.zone = zone;
 	}
 
 	/**
-	 * @return the stateId
+	 * 
+	 * @param stateId
+	 * @param stateName
+	 * @param stateCode
+	 * @param zone
 	 */
-	public Long getStateId() {
+	public States(Long stateId, String stateName, Long stateCode, String zone) {
+		super();
+		this.stateId = stateId;
+		this.stateName = stateName;
+		this.stateCode = stateCode;
+		this.zone = zone;
+	}
+
+	public Long getstateId() {
 		return stateId;
 	}
 
@@ -84,26 +100,4 @@ public class States implements Serializable {
 		this.zone = zone;
 	}
 
-	/**
-	 * @return the serialversionuid
-	 */
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	public String getstateName() {
-		return stateName;
-	}
-
-	public void setstateName(String stateName) {
-		this.stateName = stateName;
-	}
-
-	public String getzone() {
-		return zone;
-	}
-
-	public void setScheduleType(String zone) {
-		this.zone = zone;
-	}
 }

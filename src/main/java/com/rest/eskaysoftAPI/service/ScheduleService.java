@@ -1,10 +1,43 @@
 package com.rest.eskaysoftAPI.service;
 
-import com.rest.eskaysoftAPI.domain.Schedule;
-import com.rest.eskaysoftAPI.domain.SchedulesEntity;
+import java.util.List;
+
+import com.rest.eskaysoftAPI.dto.ScheduleDTO;
 
 public interface ScheduleService {
-	SchedulesEntity getSchedules();
-	Schedule getScheduleById(Long scheduleId);
-	boolean createSchedule(Schedule schedule);
+	/**
+	 * 
+	 * @return
+	 */
+	List<ScheduleDTO> getSchedules();
+	
+	/**
+	 * 
+	 * @param scheduleId
+	 * @return
+	 */
+	ScheduleDTO getScheduleById(Long scheduleId);
+	
+	/**
+	 * 
+	 * @param schedule
+	 * @return
+	 */
+	boolean createSchedule(ScheduleDTO schedule);
+	
+	/**
+	 * 
+	 * @param schedule
+	 * @return
+	 */
+	ScheduleDTO updateSchedule(ScheduleDTO schedule);
+	
+	/**
+	 * 
+	 * @param schedule
+	 * @return
+	 */
+	boolean deleteSchedule(ScheduleDTO schedule);
+	
 }
+
