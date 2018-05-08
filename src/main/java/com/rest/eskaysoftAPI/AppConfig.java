@@ -15,5 +15,6 @@ public class AppConfig extends ResourceConfig {
 	public AppConfig() {
 		register(ScheduleResource.class);
 		register(SubScheduleResource.class);
+		
 	}
 }

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.rest.eskaysoftAPI.entity.Schedule;
 
-@Repository ("scheduleDao")
+@Repository("scheduleDao")
 @Transactional
 public interface ScheduleDao extends JpaRepository<Schedule, Long> {
 
