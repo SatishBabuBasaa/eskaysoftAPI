@@ -56,6 +56,7 @@ public class SubScheduleResource {
 	@Path("/{subScheduleId}")
 	@Produces("application/json")
 	public Response getSubScheduleById(@PathParam("subScheduleId") Long subScheduleId) throws URISyntaxException {
+		System.out.println("subScheduleService=" + subScheduleService);
 		SubScheduleDTO subschedule = subScheduleService.getSubScheduleById(subScheduleId);
 		return util.buildResponse(subschedule);
 	}

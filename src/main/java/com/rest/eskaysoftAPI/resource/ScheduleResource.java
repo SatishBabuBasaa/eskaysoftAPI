@@ -56,6 +56,7 @@ public class ScheduleResource {
 	@Path("/{id}")
 	@Produces("application/json")
 	public Response getScheduleById(@PathParam("id") Long id) throws URISyntaxException {
+		System.out.println("scheduleService=" + scheduleService);
 		ScheduleDTO schedule = scheduleService.getScheduleById(id);
 		return util.buildResponse(schedule);
 	}
