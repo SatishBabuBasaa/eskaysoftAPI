@@ -13,6 +13,4 @@ public class BusinessExecutiveEntity {
 	public void setBusinessExecutive(List<BusinessExecutive> businessExecutive) {
 		this.businessExecutive = businessExecutive;
 	}
-
-	
 }

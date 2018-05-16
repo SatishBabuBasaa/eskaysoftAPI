@@ -15,7 +15,7 @@ public class SubSchedule {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long subScheduleId;
 	private String subScheduleName;
-	private String scheduleType;
+	private String subScheduleType;
 	private Long subScheduleIndex;
 	private float credit;
 
@@ -24,6 +24,33 @@ public class SubSchedule {
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "scheduleId")
 	private Schedule schedule;
+
+	public SubSchedule() {
+
+	}
+
+	public SubSchedule(String subScheduleName, String subScheduleType, Long subScheduleIndex, float credit, float debit,
+			Schedule schedule) {
+		super();
+		this.subScheduleName = subScheduleName;
+		this.subScheduleType = subScheduleType;
+		this.subScheduleIndex = subScheduleIndex;
+		this.credit = credit;
+		this.debit = debit;
+		this.schedule = schedule;
+	}
+
+	public SubSchedule(Long subScheduleId, String subScheduleName, Long subScheduleIndex, String subScheduleType,
+			float credit, float debit, Schedule schedule) {
+		super();
+		this.subScheduleId = subScheduleId;
+		this.subScheduleName = subScheduleName;
+		this.subScheduleType = subScheduleType;
+		this.subScheduleIndex = subScheduleIndex;
+		this.credit = credit;
+		this.debit = debit;
+		this.schedule = schedule;
+	}
 
 	/**
 	 * @return the schedule
@@ -60,12 +87,12 @@ public class SubSchedule {
 		return subScheduleIndex;
 	}
 
-	public String getScheduleType() {
-		return scheduleType;
+	public String getSubScheduleType() {
+		return subScheduleType;
 	}
 
-	public void setScheduleType(String scheduleType) {
-		this.scheduleType = scheduleType;
+	public void setScheduleType(String subScheduleType) {
+		this.subScheduleType = subScheduleType;
 	}
 
 	public void setSubScheduleIndex(Long subScheduleIndex) {
