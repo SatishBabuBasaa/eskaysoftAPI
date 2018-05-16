@@ -19,27 +19,20 @@ public class ProductGroup implements Serializable {
 	private Long productGroupId;
 	private String productGroupName;
 
-	
-
 	public ProductGroup() {
 		super();
 	}
 
-	
 	public ProductGroup(Long productGroupId, String productGroupName) {
 		super();
 		this.productGroupId = productGroupId;
 		this.productGroupName = productGroupName;
 	}
 
-
-
-
 	public ProductGroup(String productGroupName) {
 		super();
 		this.productGroupName = productGroupName;
 	}
-
 
 	/**
 	 * @return the productGroupId
@@ -48,14 +41,13 @@ public class ProductGroup implements Serializable {
 		return productGroupId;
 	}
 
-
 	/**
-	 * @param productGroupId the productGroupId to set
+	 * @param productGroupId
+	 *            the productGroupId to set
 	 */
 	public void setProductGroupId(Long productGroupId) {
 		this.productGroupId = productGroupId;
 	}
-
 
 	/**
 	 * @return the productGroupName
@@ -64,14 +56,12 @@ public class ProductGroup implements Serializable {
 		return productGroupName;
 	}
 
-
 	/**
-	 * @param productGroupName the productGroupName to set
+	 * @param productGroupName
+	 *            the productGroupName to set
 	 */
 	public void setProductGroupName(String productGroupName) {
 		this.productGroupName = productGroupName;
 	}
 
-
-	
 }

@@ -41,5 +41,6 @@ public class AppConfig extends ResourceConfig {
 		register(CompnayGroupResource.class);
 		register(BusinessExecutiveResource.class);
 		register(AccountOpeningsResource.class);
+		register(BusinessExecutiveResource.class);
 	}
 }

@@ -2,7 +2,6 @@ package com.rest.eskaysoftAPI.dto;
 
 import javax.persistence.CascadeType;
 
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.rest.eskaysoftAPI.entity.ProductCategory;

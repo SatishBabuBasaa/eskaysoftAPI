@@ -25,7 +25,8 @@ public class ProductGroupServiceImpl implements ProductGroupService {
 		if (productgroup != null) {
 			productgroupList = new ArrayList<ProductGroupDTO>();
 			for (ProductGroup productgroups : productgroup) {
-				ProductGroupDTO productgroupDTO = new ProductGroupDTO(productgroups.getProductGroupId(), productgroups.getProductGroupName());
+				ProductGroupDTO productgroupDTO = new ProductGroupDTO(productgroups.getProductGroupId(),
+						productgroups.getProductGroupName());
 				productgroupList.add(productgroupDTO);
 			}
 		}
@@ -72,7 +73,8 @@ public class ProductGroupServiceImpl implements ProductGroupService {
 	public ProductGroupDTO getProductGroupById(Long productGroupId) {
 		ProductGroup productgroup = productGroupDao.findOne(productGroupId);
 		if (productgroup != null) {
-			ProductGroupDTO productgroupDTO = new ProductGroupDTO(productgroup.getProductGroupId(), productgroup.getProductGroupName());
+			ProductGroupDTO productgroupDTO = new ProductGroupDTO(productgroup.getProductGroupId(),
+					productgroup.getProductGroupName());
 			return productgroupDTO;
 		}
 		return null;

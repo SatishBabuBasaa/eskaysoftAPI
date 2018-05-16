@@ -39,5 +39,4 @@ public interface ProductService {
 	 */
 	boolean deleteProduct(ProductDTO product);
 
-
 }
