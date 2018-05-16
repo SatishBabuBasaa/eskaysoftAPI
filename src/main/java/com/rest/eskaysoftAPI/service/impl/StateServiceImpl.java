@@ -13,46 +13,54 @@ import com.rest.eskaysoftAPI.service.StateService;
 
 @Service("stateService")
 public class StateServiceImpl implements StateService {
-	
+
 	@Autowired
 	StatesDao statesDao;
 
 	@Override
 	public List<StateDTO> getState() {
-		List<States> states = new ArrayList<> (statesDao.findAll());
+		List<States> states = new ArrayList<>(statesDao.findAll());
 		List<StateDTO> stateList = null;
 		if (states != null) {
 			stateList = new ArrayList<StateDTO>();
-			for(States state :  states) {
-				StateDTO scheduleDTO = new StateDTO(state.getstateId(), state.getStateName(), 
-						state.getStateCode(), state.getZone());
+			for (States state : states) {
+				StateDTO scheduleDTO = new StateDTO(state.getstateId(), state.getStateName(), state.getStateCode(),
+						state.getZone());
 				stateList.add(scheduleDTO);
 			}
 		}
 		return stateList;
 	}
+
 	@Override
 	public StateDTO getStateById(Long stateId) {
-		//return scheduleDao.getOne(scheduleId);
+		States state = statesDao.findOne(stateId);
+		if (state != null) {
+			StateDTO stateDTO = new StateDTO(state.getStateName(), state.getStateCode(), state.getzone());
+			return stateDTO;
+		}
 		return null;
 	}
-	@Override	
+
+	@Override
 	public StateDTO updateState(StateDTO stateDTO) {
-			States state = statesDao.findOne(stateDTO.getstateId());
-			if (state != null) {
-				state.setStateName(stateDTO.getstateName());
-				state.setStateCode(stateDTO.getstateCode());
-				state.setZone(stateDTO.getZone());
-				if (null != state) {
-					return stateDTO;
-				}
+		States state = statesDao.findOne(stateDTO.getstateId());
+		if (state != null) {
+			state.setStateName(stateDTO.getstateName());
+			state.setStateCode(stateDTO.getstateCode());
+			state.setZone(stateDTO.getZone());
+			state = statesDao.save(state);
+			if (null != state) {
+				return stateDTO;
 			}
-			return null;
 		}
+		return null;
+	}
+
 	@Override
 	public boolean createState(StateDTO stateDTO) {
 		try {
-			States state = new States(stateDTO.getstateName(), stateDTO.getstateCode(),stateDTO.getZone());
+			States state = new States(stateDTO.getstateName(), stateDTO.getstateCode(), stateDTO.getZone());
 			States savedState = statesDao.save(state);
 			return savedState == null ? false : true;
 		} catch (Exception e) {
@@ -60,6 +68,7 @@ public class StateServiceImpl implements StateService {
 		}
 		return false;
 	}
+
 	@Override
 	public boolean deleteState(StateDTO stateDTO) {
 		try {
@@ -70,4 +79,5 @@ public class StateServiceImpl implements StateService {
 		}
 		return false;
 	}
+
 }

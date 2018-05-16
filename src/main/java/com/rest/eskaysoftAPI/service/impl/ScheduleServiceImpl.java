@@ -1,10 +1,7 @@
 package com.rest.eskaysoftAPI.service.impl;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import javax.ws.rs.PUT;
-import javax.ws.rs.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
