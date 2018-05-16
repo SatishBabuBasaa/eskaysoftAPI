@@ -25,7 +25,6 @@ import com.rest.eskaysoftAPI.util.util;
  * @author Lavanya
  * @since 7th May, 2018
  */
-
 @Resource(name = "subschedules")
 @Path("/subschedules")
 public class SubScheduleResource {

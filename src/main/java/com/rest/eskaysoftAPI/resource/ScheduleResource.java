@@ -1,3 +1,4 @@
+
 package com.rest.eskaysoftAPI.resource;
 
 import java.net.URISyntaxException;
@@ -22,11 +23,10 @@ import com.rest.eskaysoftAPI.util.util;
 /**
  * Resource for Schedules to create/update/get/delete
  * 
- * @author Lavanya
+ * @author SuryaSree
  * @since 7th May, 2018
  *
  */
-
 @Resource(name = "schedules")
 @Path("/schedules")
 public class ScheduleResource {

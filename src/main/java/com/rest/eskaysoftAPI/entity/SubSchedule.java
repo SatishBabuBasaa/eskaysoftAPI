@@ -1,5 +1,4 @@
 package com.rest.eskaysoftAPI.entity;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

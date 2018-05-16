@@ -3,7 +3,6 @@ package com.rest.eskaysoftAPI.dto;
 import java.io.Serializable;
 
 public class ScheduleDTO implements Serializable {
-
 	/**
 	 * 
 	 */
@@ -14,7 +13,6 @@ public class ScheduleDTO implements Serializable {
 	private String ScheduleType;
 
 	public ScheduleDTO() {
-
 	}
 
 	public ScheduleDTO(Long id, String scheduleName, int scheduleIndex, String scheduleType) {
@@ -60,6 +58,5 @@ public class ScheduleDTO implements Serializable {
 
 	public void setScheduleType(String scheduleType) {
 		this.ScheduleType = scheduleType;
-
 	}
 }

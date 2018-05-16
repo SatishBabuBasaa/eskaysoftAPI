@@ -1,37 +1,25 @@
-package com.rest.eskaysoftAPI.entity;
+package com.rest.eskaysoftAPI.dto;
 
 import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+public class StateDTO implements Serializable {
 
-@Entity
-@Table(name = "states")
-public class States implements Serializable {
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id;
 	private String stateName;
 	private Long stateCode;
 	private String zone;
 
-	public States() {
+	public StateDTO() {
+
 	}
 
-	public States(Long id, String stateName, Long stateCode, String zone) {
+	public StateDTO(Long id, String stateName, Long stateCode, String zone) {
 		super();
 		Id = id;
-		this.stateName = stateName;
-		this.stateCode = stateCode;
-		this.zone = zone;
-	}
-
-	public States(String stateName, Long stateCode, String zone) {
-		super();
 		this.stateName = stateName;
 		this.stateCode = stateCode;
 		this.zone = zone;
@@ -66,6 +54,13 @@ public class States implements Serializable {
 	}
 
 	public void setZone(String zone) {
+		this.zone = zone;
+	}
+
+	public StateDTO(String stateName, Long stateCode, String zone) {
+		super();
+		this.stateName = stateName;
+		this.stateCode = stateCode;
 		this.zone = zone;
 	}
 
