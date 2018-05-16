@@ -9,19 +9,25 @@ public class CompanyGroupDTO implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 2099654952913091298L;
+	private Long Id;
 	private Company company;
 	private String companyGroup;
-	private Long compnayGroupId;
+
+	public CompanyGroupDTO() {
+		super();
+	}
 
 	public CompanyGroupDTO(Company company, String companyGroup) {
+		super();
 		this.company = company;
 		this.companyGroup = companyGroup;
 	}
 
-	public CompanyGroupDTO(Company company, String companyGroup, Long compnayGroupId) {
+	public CompanyGroupDTO(Long id, Company company, String companyGroup) {
+		super();
+		Id = id;
 		this.company = company;
 		this.companyGroup = companyGroup;
-		this.compnayGroupId = compnayGroupId;
 	}
 
 	public Company getCompany() {
@@ -40,12 +46,13 @@ public class CompanyGroupDTO implements Serializable {
 		this.companyGroup = companyGroup;
 	}
 
-	public Long getCompnayGroupId() {
-		return compnayGroupId;
+	public Long getId() {
+		return Id;
 	}
 
-	public void setCompnayGroupId(Long compnayGroupId) {
-		this.compnayGroupId = compnayGroupId;
+	public void setId(Long id) {
+		Id = id;
 	}
 
+	
 }

@@ -10,28 +10,28 @@ public interface CompanyService {
 	 * @return
 	 */
 	List<CompanyDTO> getCompanies();
-	
+
 	/**
 	 * 
 	 * @param companyId
 	 * @return
 	 */
-	CompanyDTO getCompanyById(Long companyId);
-	
+	CompanyDTO getCompanyById(Long Id);
+
 	/**
 	 * 
 	 * @param company
 	 * @return
 	 */
 	boolean createCompany(CompanyDTO company);
-	
+
 	/**
 	 * 
 	 * @param company
 	 * @return
 	 */
 	CompanyDTO updateCompany(CompanyDTO company);
-	
+
 	/**
 	 * 
 	 * @param company
@@ -39,9 +39,4 @@ public interface CompanyService {
 	 */
 	boolean deleteCompany(CompanyDTO company);
 
-
-
-
-	
 }
-

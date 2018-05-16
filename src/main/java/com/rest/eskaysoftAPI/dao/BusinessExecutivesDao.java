@@ -5,10 +5,10 @@ import javax.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.rest.eskaysoftAPI.entity.BusinessExecutives;
+import com.rest.eskaysoftAPI.entity.BusinessExecutive;
 
 
 @Repository("businessexecutivesDao")
 @Transactional
-public interface BusinessExecutivesDao extends JpaRepository<BusinessExecutives, Long> {
+public interface BusinessExecutivesDao extends JpaRepository<BusinessExecutive, Long> {
 }

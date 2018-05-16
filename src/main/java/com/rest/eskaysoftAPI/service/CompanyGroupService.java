@@ -2,9 +2,7 @@ package com.rest.eskaysoftAPI.service;
 
 import java.util.List;
 
-import com.rest.eskaysoftAPI.dto.CompanyDTO;
 import com.rest.eskaysoftAPI.dto.CompanyGroupDTO;
-import com.rest.eskaysoftAPI.entity.Company;
 
 public interface CompanyGroupService {
 	/**
@@ -18,7 +16,7 @@ public interface CompanyGroupService {
 	 * @param companyId
 	 * @return
 	 */
-	CompanyGroupDTO getCompanyGroupDTOById(Long companyGroupId);
+	CompanyGroupDTO getCompanyGroupDTOById(Long Id);
 
 	/**
 	 * 

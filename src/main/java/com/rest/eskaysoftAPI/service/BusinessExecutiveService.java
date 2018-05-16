@@ -1,3 +1,4 @@
+
 package com.rest.eskaysoftAPI.service;
 
 import java.util.List;
@@ -9,23 +10,31 @@ public interface BusinessExecutiveService {
 	 * 
 	 * @return
 	 */
-	List<BusinessExecutiveDTO> getbusinessExecutives();
+	List<BusinessExecutiveDTO> getBusinessExecutive();
 
-	BusinessExecutiveDTO getBusinessExecutivesById(Long id);
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
+
+	BusinessExecutiveDTO getBusinessExecutiveById(Long id);
 
 	/**
 	 * 
 	 * @param businessExecutive
 	 * @return
 	 */
-	boolean createbusinessExecutive(BusinessExecutiveDTO businessExecutive);
+
+	boolean createBusinessExecutive(BusinessExecutiveDTO businessExecutive);
 
 	/**
 	 * 
 	 * @param businessExecutive
 	 * @return
 	 */
-	BusinessExecutiveDTO updatebusinessExecutive(BusinessExecutiveDTO businessExecutive);
+
+	BusinessExecutiveDTO updateBusinessExecutive(BusinessExecutiveDTO businessExecutive);
 
 	/**
 	 * 
@@ -33,4 +42,5 @@ public interface BusinessExecutiveService {
 	 * @return
 	 */
 	boolean deleteBusinessExecutive(BusinessExecutiveDTO businessExecutive);
+
 }

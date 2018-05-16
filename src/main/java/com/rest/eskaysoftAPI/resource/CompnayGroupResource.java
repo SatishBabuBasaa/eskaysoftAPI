@@ -26,8 +26,8 @@ import com.rest.eskaysoftAPI.util.util;
  * @since 7th May, 2018
  *
  */
-@Resource(name = "company")
-@Path("/company")
+@Resource(name = "companyGroup")
+@Path("/companyGroup")
 public class CompnayGroupResource {
 
 	@Autowired
