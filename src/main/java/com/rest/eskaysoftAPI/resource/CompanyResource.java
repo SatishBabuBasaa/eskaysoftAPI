@@ -16,37 +16,37 @@ import javax.ws.rs.core.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.rest.eskaysoftAPI.dto.ScheduleDTO;
-import com.rest.eskaysoftAPI.service.ScheduleService;
+import com.rest.eskaysoftAPI.dto.CompanyDTO;
+import com.rest.eskaysoftAPI.service.CompanyService;
 import com.rest.eskaysoftAPI.util.util;
 
 /**
- * Resource for Schedules to create/update/get/delete
+ * Resource for Company to create/update/get/delete
  * 
  * @author SuryaSree
  * @since 7th May, 2018
  *
  */
-@Resource(name = "schedules")
-@Path("/schedules")
-public class ScheduleResource {
+@Resource(name = "company")
+@Path("/company")
+public class CompanyResource {
 
 	@Autowired
-	ScheduleService scheduleService;
+	CompanyService companyService;
 
 	/**
-	 * Returns all schedules
+	 * Returns all 
 	 * 
 	 * @return
 	 */
 	@GET
 	@Produces("application/json")
-	public Response getAllSchedules() {
-		return util.buildResponse(scheduleService.getSchedules());
+	public Response getAllCompanies() {
+		return util.buildResponse(companyService.getCompanies());
 	}
 
 	/**
-	 * Return the Schedule details for given id
+	 * Return the Company details for given id
 	 * 
 	 * @param id
 	 * @return
@@ -55,49 +55,49 @@ public class ScheduleResource {
 	@GET
 	@Path("/{id}")
 	@Produces("application/json")
-	public Response getScheduleById(@PathParam("id") Long id) throws URISyntaxException {
-		ScheduleDTO schedule = scheduleService.getScheduleById(id);
-		return util.buildResponse(schedule);
+	public Response getCompanyById(@PathParam("id") Long id) throws URISyntaxException {
+		CompanyDTO company = companyService.getCompanyById(id);
+		return util.buildResponse(company);
 	}
 
 	/**
-	 * Creates a schedule with given details
+	 * Creates a company with given details
 	 * 
-	 * @param schedule
+	 * @param company
 	 * @return
 	 * @throws URISyntaxException
 	 */
 	@POST
 	@Consumes("application/json")
 	@Produces("application/json")
-	public Response createSchedule(ScheduleDTO schedule) throws URISyntaxException {
-		if (schedule == null) {
+	public Response createCompany(CompanyDTO company) throws URISyntaxException {
+		if (company == null) {
 			return Response.status(404).build();
 		}
-		scheduleService.createSchedule(schedule);
+		companyService.createCompany(company);
 		return Response.status(200).build();
 	}
 
 	/**
-	 * Update the Schedule details
+	 * Update the Company details
 	 * 
-	 * @param scheduleDTO
+	 * @param companyDTO
 	 * @return
 	 * @throws URISyntaxException
 	 */
 	@PUT
 	@Consumes("application/json")
 	@Produces("application/json")
-	public Response updateSchedule(ScheduleDTO scheduleDTO) throws URISyntaxException {
-		scheduleDTO = scheduleService.updateSchedule(scheduleDTO);
-		if (scheduleDTO == null) {
+	public Response updateCompany(CompanyDTO companyDTO) throws URISyntaxException {
+		companyDTO = companyService.updateCompany(companyDTO);
+		if (companyDTO == null) {
 			return Response.status(404).build();
 		}
 		return Response.status(200).build();
 	}
 
 	/**
-	 * Delete the Schedule
+	 * Delete the Company
 	 * 
 	 * @param id
 	 * @return
@@ -105,10 +105,10 @@ public class ScheduleResource {
 	 */
 	@DELETE
 	@Path("/{id}")
-	public Response deleteSchedule(@PathParam("id") Long id) throws URISyntaxException {
-		ScheduleDTO scheduleDTO = scheduleService.getScheduleById(id);
-		if (scheduleDTO != null) {
-			boolean isDeleted = scheduleService.deleteSchedule(scheduleDTO);
+	public Response deleteCompany(@PathParam("id") Long id) throws URISyntaxException {
+		CompanyDTO companyDTO = companyService.getCompanyById(id);
+		if (companyDTO != null) {
+			boolean isDeleted = companyService.deleteCompany(companyDTO);
 			if (isDeleted) {
 				return Response.status(200).build();
 			}

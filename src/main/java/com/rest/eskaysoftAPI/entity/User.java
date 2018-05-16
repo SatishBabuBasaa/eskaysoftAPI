@@ -1,4 +1,5 @@
 package com.rest.eskaysoftAPI.entity;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -14,42 +15,41 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
 @Table(name = "users")
 @EntityListeners(AuditingEntityListener.class)
-@JsonIgnoreProperties(value = {"createdAt", "updatedAt"}, 
-        allowGetters = true)
+@JsonIgnoreProperties(value = { "createdAt", "updatedAt" }, allowGetters = true)
 public class User implements Serializable {
-    /**
+	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1812280824952531828L;
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-    private Long Id;
+	private Long Id;
 	@Column(name = "first_name")
-    @NotBlank
-    private String FirstName;
+	@NotBlank
+	private String FirstName;
 	@Column(name = "last_name")
-    @NotBlank
-    private String LastName;
-    @Column(name = "password")
-    @NotBlank
-    private String Password;
-    @Column(name= "dob")
-    @NotBlank
-    private String DOB;
+	@NotBlank
+	private String LastName;
+	@Column(name = "password")
+	@NotBlank
+	private String Password;
+	@Column(name = "dob")
+	@NotBlank
+	private String DOB;
 
-    @Column(nullable = false, updatable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    @CreatedDate
-    private Date createdAt;
+	@Column(nullable = false, updatable = false)
+	@Temporal(TemporalType.TIMESTAMP)
+	@CreatedDate
+	private Date createdAt;
 
-    @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    @LastModifiedDate
-    private Date updatedAt;
+	@Column(nullable = false)
+	@Temporal(TemporalType.TIMESTAMP)
+	@LastModifiedDate
+	private Date updatedAt;
 
-    public Long getId() {
+	public Long getId() {
 		return Id;
 	}
 

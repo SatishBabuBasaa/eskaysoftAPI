@@ -11,17 +11,16 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "schedules")
 public class Schedule implements Serializable {
-  
-    private static final long serialVersionUID = 1L;
-  
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long scheduleId;
-    private String scheduleName;
-    private int scheduleIndex;
-    private String scheduleType;
-    
+
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long scheduleId;
+	private String scheduleName;
+	private int scheduleIndex;
+	private String scheduleType;
+
 	public Schedule() {
 
 	}
@@ -49,7 +48,8 @@ public class Schedule implements Serializable {
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(Long id) {
 		this.scheduleId = id;
@@ -63,7 +63,8 @@ public class Schedule implements Serializable {
 	}
 
 	/**
-	 * @param scheduleName the scheduleName to set
+	 * @param scheduleName
+	 *            the scheduleName to set
 	 */
 	public void setScheduleName(String scheduleName) {
 		this.scheduleName = scheduleName;
@@ -77,7 +78,8 @@ public class Schedule implements Serializable {
 	}
 
 	/**
-	 * @param scheduleIndex the scheduleIndex to set
+	 * @param scheduleIndex
+	 *            the scheduleIndex to set
 	 */
 	public void setScheduleIndex(int scheduleIndex) {
 		this.scheduleIndex = scheduleIndex;
@@ -86,6 +88,7 @@ public class Schedule implements Serializable {
 	public String getScheduleType() {
 		return scheduleType;
 	}
+
 	public void setScheduleType(String scheduleType) {
 		this.scheduleType = scheduleType;
 	}

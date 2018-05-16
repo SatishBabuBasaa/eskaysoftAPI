@@ -1,4 +1,5 @@
-package com.rest.eskaysoftAPI.entity;
+package com.rest.eskaysoftAPI.domain;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,27 +17,18 @@ public class SubSchedule {
 	private Long subScheduleId;
 	private String subScheduleName;
 	private String scheduleType;
-	private Long subScheduleIndex;
+	private long subScheduleIndex;
 	private float credit;
-
 	private float debit;
+	private String schedule;
 
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "scheduleId")
-	private Schedule schedule;
-
-	/**
-	 * @return the schedule
-	 */
-	public Schedule getSchedule() {
-		return schedule;
+	@JoinColumn
+	public String getSchedules() {
+		return this.schedule;
 	}
 
-	/**
-	 * @param schedule
-	 *            the schedule to set
-	 */
-	public void setSchedule(Schedule schedule) {
+	public void setSchedule(String schedule) {
 		this.schedule = schedule;
 	}
 
@@ -56,7 +48,7 @@ public class SubSchedule {
 		this.subScheduleName = subScheduleName;
 	}
 
-	public Long getSubScheduleIndex() {
+	public long getSubScheduleIndex() {
 		return subScheduleIndex;
 	}
 
@@ -68,7 +60,7 @@ public class SubSchedule {
 		this.scheduleType = scheduleType;
 	}
 
-	public void setSubScheduleIndex(Long subScheduleIndex) {
+	public void setSubScheduleIndex(long subScheduleIndex) {
 		this.subScheduleIndex = subScheduleIndex;
 	}
 
