@@ -27,15 +27,15 @@ import com.rest.eskaysoftAPI.util.util;
  * @since 7th May, 2018
  *
  */
-@Resource(name = "company")
-@Path("/company")
+@Resource(name = "companyResource")
+@Path("/companyResource")
 public class CompanyResource {
 
 	@Autowired
 	CompanyService companyService;
 
 	/**
-	 * Returns all schedules
+	 * Returns all 
 	 * 
 	 * @return
 	 */

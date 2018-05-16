@@ -5,6 +5,10 @@ import javax.ws.rs.ApplicationPath;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.stereotype.Component;
 
+import com.rest.eskaysoftAPI.resource.AccountOpeningsResource;
+import com.rest.eskaysoftAPI.resource.BusinessExecutiveResource;
+import com.rest.eskaysoftAPI.resource.CompanyResource;
+import com.rest.eskaysoftAPI.resource.CompnayGroupResource;
 import com.rest.eskaysoftAPI.resource.CustomerWiseDiscountsResource;
 import com.rest.eskaysoftAPI.resource.DistrictResource;
 import com.rest.eskaysoftAPI.resource.ScheduleResource;
@@ -19,5 +23,9 @@ public class AppConfig extends ResourceConfig {
 		register(CustomerWiseDiscountsResource.class);
 		register(StateResource.class);
 		register(DistrictResource.class);
+		register(CompanyResource.class);
+		register(CompnayGroupResource.class);
+		register(BusinessExecutiveResource.class);
+		register(AccountOpeningsResource.class);
 	}
 }
