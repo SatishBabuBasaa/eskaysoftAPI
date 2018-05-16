@@ -16,7 +16,6 @@ public class AreaDTO implements Serializable {
 
 	}
 
-
 	public AreaDTO(Long areaId, String areaName, String executiveName) {
 		super();
 		AreaId = areaId;
@@ -24,14 +23,11 @@ public class AreaDTO implements Serializable {
 		ExecutiveName = executiveName;
 	}
 
-
-	
 	public AreaDTO(String areaName, String executiveName) {
 		super();
 		AreaName = areaName;
 		ExecutiveName = executiveName;
 	}
-
 
 	/**
 	 * @return the areaId
@@ -40,14 +36,13 @@ public class AreaDTO implements Serializable {
 		return AreaId;
 	}
 
-
 	/**
-	 * @param areaId the areaId to set
+	 * @param areaId
+	 *            the areaId to set
 	 */
 	public void setAreaId(Long areaId) {
 		AreaId = areaId;
 	}
-
 
 	/**
 	 * @return the areaName
@@ -56,14 +51,13 @@ public class AreaDTO implements Serializable {
 		return AreaName;
 	}
 
-
 	/**
-	 * @param areaName the areaName to set
+	 * @param areaName
+	 *            the areaName to set
 	 */
 	public void setAreaName(String areaName) {
 		AreaName = areaName;
 	}
-
 
 	/**
 	 * @return the executiveName
@@ -72,14 +66,12 @@ public class AreaDTO implements Serializable {
 		return ExecutiveName;
 	}
 
-
 	/**
-	 * @param executiveName the executiveName to set
+	 * @param executiveName
+	 *            the executiveName to set
 	 */
 	public void setExecutiveName(String executiveName) {
 		ExecutiveName = executiveName;
 	}
 
-
-	
 }

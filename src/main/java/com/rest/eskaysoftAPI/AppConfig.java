@@ -2,11 +2,15 @@ package com.rest.eskaysoftAPI;
 
 import javax.ws.rs.ApplicationPath;
 
+
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.stereotype.Component;
 
 import com.rest.eskaysoftAPI.resource.BankInformationResource;
 import com.rest.eskaysoftAPI.resource.ManfacturerResource;
+import com.rest.eskaysoftAPI.resource.ProductCategoryResource;
+import com.rest.eskaysoftAPI.resource.ProductGroupResource;
+import com.rest.eskaysoftAPI.resource.ProductResource;
 import com.rest.eskaysoftAPI.resource.AreaResource;
 import com.rest.eskaysoftAPI.resource.ScheduleResource;
 import com.rest.eskaysoftAPI.resource.SubScheduleResource;
@@ -21,5 +25,9 @@ public class AppConfig extends ResourceConfig {
 		register(AreaResource.class);
 		register(BankInformationResource.class);
 		register(ManfacturerResource.class);
+		register(ProductGroupResource.class);
+		register(ProductCategoryResource.class);
+		register(ProductResource.class);
+		
 	}
 }
