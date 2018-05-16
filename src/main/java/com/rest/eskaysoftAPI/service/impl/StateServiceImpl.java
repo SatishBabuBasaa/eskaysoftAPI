@@ -24,7 +24,7 @@ public class StateServiceImpl implements StateService {
 		if (states != null) {
 			stateList = new ArrayList<StateDTO>();
 			for (States state : states) {
-				StateDTO scheduleDTO = new StateDTO(state.getstateId(), state.getStateName(), state.getStateCode(),
+				StateDTO scheduleDTO = new StateDTO(state.getId(), state.getStateName(), state.getStateCode(),
 						state.getZone());
 				stateList.add(scheduleDTO);
 			}
@@ -33,21 +33,11 @@ public class StateServiceImpl implements StateService {
 	}
 
 	@Override
-	public StateDTO getStateById(Long stateId) {
-		States state = statesDao.findOne(stateId);
-		if (state != null) {
-			StateDTO stateDTO = new StateDTO(state.getStateName(), state.getStateCode(), state.getzone());
-			return stateDTO;
-		}
-		return null;
-	}
-
-	@Override
 	public StateDTO updateState(StateDTO stateDTO) {
-		States state = statesDao.findOne(stateDTO.getstateId());
+		States state = statesDao.findOne(stateDTO.getId());
 		if (state != null) {
-			state.setStateName(stateDTO.getstateName());
-			state.setStateCode(stateDTO.getstateCode());
+			state.setStateName(stateDTO.getStateName());
+			state.setStateCode(stateDTO.getStateCode());
 			state.setZone(stateDTO.getZone());
 			state = statesDao.save(state);
 			if (null != state) {
@@ -60,11 +50,11 @@ public class StateServiceImpl implements StateService {
 	@Override
 	public boolean createState(StateDTO stateDTO) {
 		try {
-			States state = new States(stateDTO.getstateName(), stateDTO.getstateCode(), stateDTO.getZone());
+			States state = new States(stateDTO.getStateName(), stateDTO.getStateCode(), stateDTO.getZone());
 			States savedState = statesDao.save(state);
 			return savedState == null ? false : true;
 		} catch (Exception e) {
-			System.out.println("Unable to create schedule:" + stateDTO.getstateName());
+			System.out.println("Unable to create schedule:" + stateDTO.getStateName());
 		}
 		return false;
 	}
@@ -72,12 +62,23 @@ public class StateServiceImpl implements StateService {
 	@Override
 	public boolean deleteState(StateDTO stateDTO) {
 		try {
-			statesDao.delete(stateDTO.getstateId());
+			statesDao.delete(stateDTO.getId());
 			return true;
 		} catch (Exception e) {
-			System.out.println("Unable to delete state having id:" + stateDTO.getstateId());
+			System.out.println("Unable to delete state having id:" + stateDTO.getId());
 		}
 		return false;
+	}
+
+	@Override
+	public StateDTO getStateById(Long id) {
+		States state = statesDao.findOne(id);
+		if (state != null) {
+			StateDTO stateDTO = new StateDTO(state.getId(), state.getStateName(), state.getStateCode(),
+					state.getZone());
+			return stateDTO;
+		}
+		return null;
 	}
 
 }

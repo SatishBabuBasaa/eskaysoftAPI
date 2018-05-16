@@ -16,7 +16,6 @@ import javax.ws.rs.core.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.rest.eskaysoftAPI.dto.ScheduleDTO;
 import com.rest.eskaysoftAPI.dto.StateDTO;
 import com.rest.eskaysoftAPI.service.StateService;
 import com.rest.eskaysoftAPI.util.util;
@@ -67,8 +66,8 @@ public class StateResource {
 	
 	@DELETE
 	@Path("/{id}")
-	public Response deleteState(@PathParam("id") Long stateId) throws URISyntaxException {
-		StateDTO stateDTO = stateService.getStateById(stateId);
+	public Response deleteState(@PathParam("id") Long id) throws URISyntaxException {
+		StateDTO stateDTO = stateService.getStateById(id);
 		if (stateDTO != null) {
 			boolean isDeleted = stateService.deleteState(stateDTO);
 			if (isDeleted) {
@@ -79,17 +78,4 @@ public class StateResource {
 		return Response.status(404).build();
 	}
 	
-	/*@DELETE
-	@Path("/{id}")
-	public Response deleteSchedule(@PathParam("id") Long id) throws URISyntaxException {
-		ScheduleDTO scheduleDTO = scheduleService.getScheduleById(id);
-		if (scheduleDTO != null) {
-			boolean isDeleted = scheduleService.deleteSchedule(scheduleDTO);
-			if (isDeleted) {
-				return Response.status(200).build();
-			}
-		}
-		return Response.status(404).build();
-	}
-*/
 }

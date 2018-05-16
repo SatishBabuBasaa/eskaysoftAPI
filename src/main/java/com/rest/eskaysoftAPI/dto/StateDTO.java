@@ -8,7 +8,7 @@ public class StateDTO implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Long stateId;
+	private Long Id;
 	private String stateName;
 	private Long stateCode;
 	private String zone;
@@ -17,40 +17,35 @@ public class StateDTO implements Serializable {
 
 	}
 
-	public StateDTO(String stateName, Long stateCode, String zone) {
+	public StateDTO(Long id, String stateName, Long stateCode, String zone) {
+		super();
+		Id = id;
 		this.stateName = stateName;
 		this.stateCode = stateCode;
 		this.zone = zone;
 	}
 
-	public StateDTO(Long stateId, String stateName, Long stateCode, String zone) {
-		this.stateId = stateId;
-		this.stateName = stateName;
-		this.stateCode = stateCode;
-		this.zone = zone;
+	public Long getId() {
+		return Id;
 	}
 
-	public Long getstateId() {
-		return stateId;
+	public void setId(Long id) {
+		Id = id;
 	}
 
-	public void setstateId(Long stateId) {
-		this.stateId = stateId;
-	}
-
-	public String getstateName() {
+	public String getStateName() {
 		return stateName;
 	}
 
-	public void setstateName(String stateName) {
+	public void setStateName(String stateName) {
 		this.stateName = stateName;
 	}
 
-	public Long getstateCode() {
+	public Long getStateCode() {
 		return stateCode;
 	}
 
-	public void setstateCode(Long stateCode) {
+	public void setStateCode(Long stateCode) {
 		this.stateCode = stateCode;
 	}
 
@@ -61,4 +56,12 @@ public class StateDTO implements Serializable {
 	public void setZone(String zone) {
 		this.zone = zone;
 	}
+
+	public StateDTO(String stateName, Long stateCode, String zone) {
+		super();
+		this.stateName = stateName;
+		this.stateCode = stateCode;
+		this.zone = zone;
+	}
+
 }

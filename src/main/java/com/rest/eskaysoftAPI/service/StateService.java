@@ -16,7 +16,7 @@ public interface StateService {
 	 * @param stateId
 	 * @return
 	 */
-	StateDTO getStateById(Long stateId);
+	StateDTO getStateById(Long id);
 	
 	/**
 	 * 
