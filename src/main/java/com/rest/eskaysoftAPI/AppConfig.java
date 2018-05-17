@@ -5,6 +5,7 @@ import javax.ws.rs.ApplicationPath;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.stereotype.Component;
 
+import com.rest.eskaysoftAPI.resource.AccountInformationResource;
 import com.rest.eskaysoftAPI.resource.AccountOpeningsResource;
 import com.rest.eskaysoftAPI.resource.AreaResource;
 import com.rest.eskaysoftAPI.resource.BankInformationResource;
@@ -42,5 +43,6 @@ public class AppConfig extends ResourceConfig {
 		register(BusinessExecutiveResource.class);
 		register(AccountOpeningsResource.class);
 		register(BusinessExecutiveResource.class);
+		register(AccountInformationResource.class);
 	}
 }
