@@ -30,9 +30,7 @@ public class Product {
 	private String Free;
 	private float Tax;
 
-	public Product() {
-		super();
-	}
+	
 
 	public Product(Long productId, String productCode, String productName, String packing, Long boxQty,
 			ProductGroup group, Long caseQty, ProductCategory category, Long netRate, String isNetRateItem,
