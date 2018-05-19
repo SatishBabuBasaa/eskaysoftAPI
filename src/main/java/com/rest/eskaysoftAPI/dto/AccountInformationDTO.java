@@ -2,8 +2,6 @@ package com.rest.eskaysoftAPI.dto;
 
 import java.io.Serializable;
 
-import com.rest.eskaysoftAPI.entity.Schedule;
-import com.rest.eskaysoftAPI.entity.SubSchedule;
 
 public class AccountInformationDTO implements Serializable {
 	private static final long serialVersionUID = 2099654952913091298L;

@@ -3,7 +3,6 @@ package com.rest.eskaysoftAPI.service;
 import java.util.List;
 
 import com.rest.eskaysoftAPI.dto.DistrictDTO;
-import com.rest.eskaysoftAPI.dto.ScheduleDTO;
 
 public interface DistrictService {
 	/**

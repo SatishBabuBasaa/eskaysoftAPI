@@ -25,7 +25,8 @@ public class DistrictServiceImpl implements DistrictService {
 			districtList = new ArrayList<DistrictDTO>();
 			for (Districts district : districts) {
 				DistrictDTO districtDTO = new DistrictDTO(district.getDistrictId(), district.getDistrictName(),
-						district.getState());
+						district.getState(), district.getCreatedBy(), district.getCreatedOn(), district.getUpdatedBy(),
+						district.getUpdatedOn());
 				districtList.add(districtDTO);
 			}
 		}
@@ -38,7 +39,8 @@ public class DistrictServiceImpl implements DistrictService {
 		Districts district = districtDao.findOne(districtId);
 		if (district != null) {
 			DistrictDTO districtDTO = new DistrictDTO(district.getDistrictId(), district.getDistrictName(),
-					district.getState());
+					district.getState(), district.getCreatedBy(), district.getCreatedOn(), district.getUpdatedBy(),
+					district.getUpdatedOn());
 			return districtDTO;
 		}
 		return null;
@@ -46,11 +48,15 @@ public class DistrictServiceImpl implements DistrictService {
 
 	@Override
 	public DistrictDTO updateDistrict(DistrictDTO districtDTO) {
-		Districts district = districtDao.findOne(districtDTO.getDistrictId());
+		Districts district = districtDao.findOne(districtDTO.getId());
 
 		if (district != null) {
 			district.setDistrictName(districtDTO.getDistrictName());
 			district.setStateName(districtDTO.getState());
+			district.setCreatedBy(districtDTO.getCreatedBy());
+			district.setCreatedOn(districtDTO.getCreatedOn());
+			district.setUpdatedBy(districtDTO.getUpdatedBy());
+			district.setUpdatedOn(districtDTO.getUpdatedOn());
 			district = districtDao.save(district);
 			if (null != district) {
 				return districtDTO;
@@ -64,8 +70,9 @@ public class DistrictServiceImpl implements DistrictService {
 	@Override
 	public boolean createDistrict(DistrictDTO districtDTO) {
 		try {
-			Districts district = new Districts(districtDTO.getDistrictId(), districtDTO.getDistrictName(),
-					districtDTO.getState());
+			Districts district = new Districts(districtDTO.getDistrictName(), districtDTO.getState(),
+					districtDTO.getCreatedBy(), districtDTO.getCreatedOn(), districtDTO.getUpdatedBy(),
+					districtDTO.getUpdatedOn());
 			Districts savedDistrict = districtDao.save(district);
 			return savedDistrict == null ? false : true;
 		} catch (Exception e) {
@@ -77,10 +84,10 @@ public class DistrictServiceImpl implements DistrictService {
 	@Override
 	public boolean deleteDistrict(DistrictDTO districtDTO) {
 		try {
-			districtDao.delete(districtDTO.getDistrictId());
+			districtDao.delete(districtDTO.getId());
 			return true;
 		} catch (Exception e) {
-			System.out.println("Unable to delete district having id:" + districtDTO.getDistrictId());
+			System.out.println("Unable to delete district having id:" + districtDTO.getId());
 		}
 		return false;
 	}
