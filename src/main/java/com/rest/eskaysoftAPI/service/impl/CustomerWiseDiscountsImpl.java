@@ -23,8 +23,10 @@ public class CustomerWiseDiscountsImpl implements CustomerWiseDiscountsService {
 		if (customerWiseDiscounts != null) {
 			customerWiseDiscountsList = new ArrayList<CustomerWiseDiscountsDTO>();
 			for (CustomerWiseDiscounts customerWise : customerWiseDiscounts) {
-				CustomerWiseDiscountsDTO customerWiseDiscountsDTO = new CustomerWiseDiscountsDTO(customerWise.getId(),customerWise.getCustomer(),customerWise.getCompanyOption(),
-						customerWise.getDiscount(),customerWise.getCompanyDiscription(),customerWise.getDisc());
+				CustomerWiseDiscountsDTO customerWiseDiscountsDTO = new CustomerWiseDiscountsDTO(customerWise.getId(),
+						customerWise.getCustomer(), customerWise.getCompanyOption(), customerWise.getDiscount(),
+						customerWise.getCompanyDiscription(), customerWise.getDisc(), customerWise.getCreatedBy(),
+						customerWise.getCreatedOn(), customerWise.getUpdatedBy(), customerWise.getUpdatedOn());
 				customerWiseDiscountsList.add(customerWiseDiscountsDTO);
 			}
 		}
@@ -36,10 +38,11 @@ public class CustomerWiseDiscountsImpl implements CustomerWiseDiscountsService {
 		CustomerWiseDiscounts customerWiseDiscounts = customerWiseDiscountsDao.findOne(id);
 		if (customerWiseDiscounts != null) {
 			CustomerWiseDiscountsDTO customerWiseDiscountsDTO = new CustomerWiseDiscountsDTO(
-					 customerWiseDiscounts.getCustomer(),
-					customerWiseDiscounts.getCompanyOption(), customerWiseDiscounts.getDiscount(),
-					customerWiseDiscounts.getCompanyDiscription(), customerWiseDiscounts.getDisc()
-					);
+					customerWiseDiscounts.getCustomer(), customerWiseDiscounts.getCompanyOption(),
+					customerWiseDiscounts.getDiscount(), customerWiseDiscounts.getCompanyDiscription(),
+					customerWiseDiscounts.getDisc(), customerWiseDiscounts.getCreatedBy(),
+					customerWiseDiscounts.getCreatedOn(), customerWiseDiscounts.getUpdatedBy(),
+					customerWiseDiscounts.getUpdatedOn());
 
 			return customerWiseDiscountsDTO;
 		}
@@ -56,7 +59,11 @@ public class CustomerWiseDiscountsImpl implements CustomerWiseDiscountsService {
 			customerWiseDiscounts.setDiscount(customerWiseDiscountsDTO.getDiscount());
 			customerWiseDiscounts.setCompanyDiscription(customerWiseDiscountsDTO.getCompanyDiscription());
 			customerWiseDiscounts.setDisc(customerWiseDiscountsDTO.getDisc());
-			
+			customerWiseDiscounts.setCreatedBy(customerWiseDiscountsDTO.getCreatedBy());
+			customerWiseDiscounts.setCreatedOn(customerWiseDiscountsDTO.getCreatedOn());
+			customerWiseDiscounts.setUpdatedBy(customerWiseDiscountsDTO.getUpdatedBy());
+			customerWiseDiscounts.setUpdatedOn(customerWiseDiscountsDTO.getUpdatedOn());
+
 			customerWiseDiscounts = customerWiseDiscountsDao.save(customerWiseDiscounts);
 			if (null != customerWiseDiscounts) {
 
@@ -83,7 +90,9 @@ public class CustomerWiseDiscountsImpl implements CustomerWiseDiscountsService {
 			CustomerWiseDiscounts customerWiseDiscounts = new CustomerWiseDiscounts(
 					customerWiseDiscountsDTO.getCustomer(), customerWiseDiscountsDTO.getCompanyOption(),
 					customerWiseDiscountsDTO.getDiscount(), customerWiseDiscountsDTO.getCompanyDiscription(),
-					customerWiseDiscountsDTO.getDisc());
+					customerWiseDiscountsDTO.getDisc(), customerWiseDiscountsDTO.getUpdatedBy(),
+					customerWiseDiscountsDTO.getUpdatedOn(), customerWiseDiscountsDTO.getCreatedBy(),
+					customerWiseDiscountsDTO.getCreatedOn());
 
 			CustomerWiseDiscounts savedCustomerWiseDiscounts = customerWiseDiscountsDao.save(customerWiseDiscounts);
 			return savedCustomerWiseDiscounts == null ? false : true;

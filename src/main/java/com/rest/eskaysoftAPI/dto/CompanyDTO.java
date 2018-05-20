@@ -1,7 +1,7 @@
 package com.rest.eskaysoftAPI.dto;
 
 import java.io.Serializable;
-
+import java.util.Date;
 
 public class CompanyDTO implements Serializable {
 	/**
@@ -15,36 +15,45 @@ public class CompanyDTO implements Serializable {
 	private String invGenType;
 	private String invPrefix;
 	private String companyType;
+	private String createdBy;
+	private Date createdOn;
+	private String updatedBy;
+	private Date updatedOn;
 
 	public CompanyDTO() {
 		super();
 	}
 
-	
-	public CompanyDTO(Long id, String companyCode, String companyGroup, String companyStatus, String companyType,String invGenType, String invPrefix) {
+	public CompanyDTO(Long id, String companyCode, String companyGroup, String companyStatus, String invGenType,
+			String invPrefix, String companyType, String createdBy, Date createdOn, String updatedBy, Date updatedOn) {
 		super();
-		this.id= id;
+		this.id = id;
 		this.companyCode = companyCode;
 		this.companyGroup = companyGroup;
 		this.companyStatus = companyStatus;
-		this.companyType = companyType;
 		this.invGenType = invGenType;
 		this.invPrefix = invPrefix;
-		
+		this.companyType = companyType;
+		this.createdBy = createdBy;
+		this.createdOn = createdOn;
+		this.updatedBy = updatedBy;
+		this.updatedOn = updatedOn;
 	}
 
-
-	public CompanyDTO(String companyCode, String companyGroup, String companyStatus, String companyType,
-			 String invGenType, String invPrefix) {
-		
+	public CompanyDTO(String companyCode, String companyGroup, String companyStatus, String invGenType,
+			String invPrefix, String companyType, String createdBy, Date createdOn, String updatedBy, Date updatedOn) {
+		super();
 		this.companyCode = companyCode;
 		this.companyGroup = companyGroup;
 		this.companyStatus = companyStatus;
-		this.companyType = companyType;
 		this.invGenType = invGenType;
 		this.invPrefix = invPrefix;
+		this.companyType = companyType;
+		this.createdBy = createdBy;
+		this.createdOn = createdOn;
+		this.updatedBy = updatedBy;
+		this.updatedOn = updatedOn;
 	}
-
 
 	public Long getId() {
 		return id;
@@ -104,6 +113,38 @@ public class CompanyDTO implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public Date getCreatedOn() {
+		return createdOn;
+	}
+
+	public void setCreatedOn(Date createdOn) {
+		this.createdOn = createdOn;
+	}
+
+	public String getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+	public Date getUpdatedOn() {
+		return updatedOn;
+	}
+
+	public void setUpdatedOn(Date updatedOn) {
+		this.updatedOn = updatedOn;
 	}
 
 }

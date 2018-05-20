@@ -20,9 +20,9 @@ import com.rest.eskaysoftAPI.service.AreaService;
 import com.rest.eskaysoftAPI.util.util;
 
 /**
- * Resource for Schedules to create/update/get/delete
+ * Resource for AreaResource to create/update/get/delete
  * 
- * @author Lavanya
+ * @author Surya sree
  * @since 7th May, 2018
  *
  */
@@ -54,7 +54,7 @@ public class AreaResource {
 	@GET
 	@Path("/{areaId}")
 	@Produces("application/json")
-	public Response getAreaById(@PathParam("areaId") Long areaId) throws URISyntaxException {
+	public Response getAreaById(@PathParam("id") Long areaId) throws URISyntaxException {
 		AreaDTO area = areaService.getAreaById(areaId);
 		return util.buildResponse(area);
 	}
@@ -103,9 +103,9 @@ public class AreaResource {
 	 * @throws URISyntaxException
 	 */
 	@DELETE
-	@Path("/{areaId}")
-	public Response deleteArea(@PathParam("areaId") Long areaId) throws URISyntaxException {
-		AreaDTO areaDTO = areaService.getAreaById(areaId);
+	@Path("/{id}")
+	public Response deleteArea(@PathParam("id") Long id) throws URISyntaxException {
+		AreaDTO areaDTO = areaService.getAreaById(id);
 		if (areaDTO != null) {
 			boolean isDeleted = areaService.deleteArea(areaDTO);
 			if (isDeleted) {

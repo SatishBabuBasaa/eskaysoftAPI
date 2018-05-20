@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "sub_schedules")
+@Table(name = "subschedules")
 public class SubSchedule {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,6 +1,7 @@
 package com.rest.eskaysoftAPI.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class AccountOpeningsDTO implements Serializable {
 
@@ -11,29 +12,10 @@ public class AccountOpeningsDTO implements Serializable {
 	private String town;
 	private String openigs;
 	private String type;
-
-	public AccountOpeningsDTO(Long id, String code, String accountName, String town, String openigs, String type) {
-		super();
-		Id = id;
-		this.code = code;
-		this.accountName = accountName;
-		this.town = town;
-		this.openigs = openigs;
-		this.type = type;
-	}
-
-	public AccountOpeningsDTO(String code, String accountName, String town, String openigs, String type) {
-		super();
-		this.code = code;
-		this.accountName = accountName;
-		this.town = town;
-		this.openigs = openigs;
-		this.type = type;
-	}
-
-	public AccountOpeningsDTO() {
-		super();
-	}
+	private String createdBy;
+	private Date createdOn;
+	private String updatedBy;
+	private Date updatedOn;
 
 	public Long getId() {
 		return Id;
@@ -82,5 +64,71 @@ public class AccountOpeningsDTO implements Serializable {
 	public void setType(String type) {
 		this.type = type;
 	}
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public Date getCreatedOn() {
+		return createdOn;
+	}
+
+	public void setCreatedOn(Date createdOn) {
+		this.createdOn = createdOn;
+	}
+
+	public String getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+	public Date getUpdatedOn() {
+		return updatedOn;
+	}
+
+	public void setUpdatedOn(Date updatedOn) {
+		this.updatedOn = updatedOn;
+	}
+
+	public AccountOpeningsDTO(Long id, String code, String accountName, String town, String openigs, String type,
+			String createdBy, Date createdOn, String updatedBy, Date updatedOn) {
+		super();
+		Id = id;
+		this.code = code;
+		this.accountName = accountName;
+		this.town = town;
+		this.openigs = openigs;
+		this.type = type;
+		this.createdBy = createdBy;
+		this.createdOn = createdOn;
+		this.updatedBy = updatedBy;
+		this.updatedOn = updatedOn;
+	}
+
+	public AccountOpeningsDTO(String code, String accountName, String town, String openigs, String type,
+			String createdBy, Date createdOn, String updatedBy, Date updatedOn) {
+		super();
+		this.code = code;
+		this.accountName = accountName;
+		this.town = town;
+		this.openigs = openigs;
+		this.type = type;
+		this.createdBy = createdBy;
+		this.createdOn = createdOn;
+		this.updatedBy = updatedBy;
+		this.updatedOn = updatedOn;
+	}
+
+	public AccountOpeningsDTO() {
+		super();
+	}
+	
 
 }

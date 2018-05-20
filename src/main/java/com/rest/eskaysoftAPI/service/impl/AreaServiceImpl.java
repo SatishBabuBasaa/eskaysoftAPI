@@ -24,7 +24,8 @@ public class AreaServiceImpl implements AreaService {
 		if (area != null) {
 			areaList = new ArrayList<AreaDTO>();
 			for (Area areas : area) {
-				AreaDTO areaDTO = new AreaDTO(areas.getAreaId(), areas.getAreaName(), areas.getExecutiveName());
+				AreaDTO areaDTO = new AreaDTO(areas.getId(), areas.getAreaName(), areas.getExecutiveName(),
+						areas.getCreatedBy(), areas.getCreatedOn(), areas.getUpdatedBy(), areas.getUpdatedOn());
 				areaList.add(areaDTO);
 			}
 		}
@@ -33,10 +34,15 @@ public class AreaServiceImpl implements AreaService {
 
 	@Override
 	public AreaDTO updateArea(AreaDTO areaDTO) {
-		Area area = areaDao.findOne(areaDTO.getAreaId());
+		Area area = areaDao.findOne(areaDTO.getId());
 		if (area != null) {
 			area.setAreaName(areaDTO.getAreaName());
 			area.setExecutiveName(areaDTO.getExecutiveName());
+			area.setCreatedBy(areaDTO.getCreatedBy());
+			area.setCreatedOn(areaDTO.getCreatedOn());
+			area.setUpdatedBy(areaDTO.getUpdatedBy());
+			area.setUpdatedOn(areaDTO.getUpdatedOn());
+
 			area = areaDao.save(area);
 			if (null != area) {
 				return areaDTO;
@@ -48,11 +54,12 @@ public class AreaServiceImpl implements AreaService {
 	@Override
 	public boolean createArea(AreaDTO areaDTO) {
 		try {
-			Area area = new Area(areaDTO.getAreaName(), areaDTO.getExecutiveName());
+			Area area = new Area(areaDTO.getAreaName(), areaDTO.getExecutiveName(), areaDTO.getCreatedBy(),
+					areaDTO.getCreatedOn(), areaDTO.getUpdatedBy(), areaDTO.getUpdatedOn());
 			Area savedArea = areaDao.save(area);
 			return savedArea == null ? false : true;
 		} catch (Exception e) {
-			System.out.println("Unable to create schedule:" + areaDTO.getAreaName());
+			System.out.println("Unable to create Area:" + areaDTO.getAreaName());
 		}
 		return false;
 	}
@@ -60,19 +67,20 @@ public class AreaServiceImpl implements AreaService {
 	@Override
 	public boolean deleteArea(AreaDTO areaDTO) {
 		try {
-			areaDao.delete(areaDTO.getAreaId());
+			areaDao.delete(areaDTO.getId());
 			return true;
 		} catch (Exception e) {
-			System.out.println("Unable to delete area having id:" + areaDTO.getAreaId());
+			System.out.println("Unable to delete area having id:" + areaDTO.getId());
 		}
 		return false;
 	}
 
 	@Override
-	public AreaDTO getAreaById(Long areaId) {
-		Area area = areaDao.findOne(areaId);
+	public AreaDTO getAreaById(Long id) {
+		Area area = areaDao.findOne(id);
 		if (area != null) {
-			AreaDTO areaDTO = new AreaDTO(area.getAreaId(), area.getAreaName(), area.getExecutiveName());
+			AreaDTO areaDTO = new AreaDTO(area.getId(), area.getAreaName(), area.getExecutiveName(),
+					area.getCreatedBy(), area.getCreatedOn(), area.getUpdatedBy(), area.getUpdatedOn());
 			return areaDTO;
 		}
 		return null;

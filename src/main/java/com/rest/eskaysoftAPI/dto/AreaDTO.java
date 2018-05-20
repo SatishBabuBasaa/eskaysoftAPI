@@ -1,6 +1,7 @@
 package com.rest.eskaysoftAPI.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class AreaDTO implements Serializable {
 
@@ -8,40 +9,79 @@ public class AreaDTO implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 2099654952913091298L;
-	private Long AreaId;
+	private Long Id;
 	private String AreaName;
 	private String ExecutiveName;
+	private String createdBy;
+	private Date createdOn;
+	private String updatedBy;
+	private Date updatedOn;
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public Date getCreatedOn() {
+		return createdOn;
+	}
+
+	public void setCreatedOn(Date createdOn) {
+		this.createdOn = createdOn;
+	}
+
+	public String getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+	public Date getUpdatedOn() {
+		return updatedOn;
+	}
+
+	public void setUpdatedOn(Date updatedOn) {
+		this.updatedOn = updatedOn;
+	}
 
 	public AreaDTO() {
 
 	}
 
-	public AreaDTO(Long areaId, String areaName, String executiveName) {
-		super();
-		AreaId = areaId;
-		AreaName = areaName;
-		ExecutiveName = executiveName;
-	}
-
-	public AreaDTO(String areaName, String executiveName) {
+	public AreaDTO(String areaName, String executiveName, String createdBy, Date createdOn, String updatedBy,
+			Date updatedOn) {
 		super();
 		AreaName = areaName;
 		ExecutiveName = executiveName;
+		this.createdBy = createdBy;
+		this.createdOn = createdOn;
+		this.updatedBy = updatedBy;
+		this.updatedOn = updatedOn;
 	}
 
-	/**
-	 * @return the areaId
-	 */
-	public Long getAreaId() {
-		return AreaId;
+	public AreaDTO(Long id, String areaName, String executiveName, String createdBy, Date createdOn, String updatedBy,
+			Date updatedOn) {
+		super();
+		Id = id;
+		AreaName = areaName;
+		ExecutiveName = executiveName;
+		this.createdBy = createdBy;
+		this.createdOn = createdOn;
+		this.updatedBy = updatedBy;
+		this.updatedOn = updatedOn;
 	}
 
-	/**
-	 * @param areaId
-	 *            the areaId to set
-	 */
-	public void setAreaId(Long areaId) {
-		AreaId = areaId;
+	public Long getId() {
+		return Id;
+	}
+
+	public void setId(Long id) {
+		Id = id;
 	}
 
 	/**

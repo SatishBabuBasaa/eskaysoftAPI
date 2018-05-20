@@ -1,6 +1,7 @@
 package com.rest.eskaysoftAPI.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class BankInformationDTO implements Serializable {
 
@@ -8,58 +9,95 @@ public class BankInformationDTO implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 2099654952913091298L;
-	private Long BankId;
+	private Long Id;
 	private String Name;
-	private String  Address;
-	public BankInformationDTO() {
-		super();
+	private String Address;
+	private String createdBy;
+	private Date createdOn;
+	private String updatedBy;
+	private Date updatedOn;
+
+	public Long getId() {
+		return Id;
 	}
-	public BankInformationDTO(Long bankId, String name, String address) {
-		super();
-		BankId = bankId;
-		Name = name;
-		Address = address;
+
+	public void setId(Long id) {
+		Id = id;
 	}
-	public BankInformationDTO(String name, String address) {
-		super();
-		Name = name;
-		Address = address;
-	}
-	/**
-	 * @return the bankId
-	 */
-	public Long getBankId() {
-		return BankId;
-	}
-	/**
-	 * @param bankId the bankId to set
-	 */
-	public void setBankId(Long bankId) {
-		BankId = bankId;
-	}
-	/**
-	 * @return the name
-	 */
+
 	public String getName() {
 		return Name;
 	}
-	/**
-	 * @param name the name to set
-	 */
+
 	public void setName(String name) {
 		Name = name;
 	}
-	/**
-	 * @return the address
-	 */
+
 	public String getAddress() {
 		return Address;
 	}
-	/**
-	 * @param address the address to set
-	 */
+
 	public void setAddress(String address) {
 		Address = address;
 	}
-	
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public Date getCreatedOn() {
+		return createdOn;
+	}
+
+	public void setCreatedOn(Date createdOn) {
+		this.createdOn = createdOn;
+	}
+
+	public String getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+	public Date getUpdatedOn() {
+		return updatedOn;
+	}
+
+	public void setUpdatedOn(Date updatedOn) {
+		this.updatedOn = updatedOn;
+	}
+
+	public BankInformationDTO(Long id, String name, String address, String createdBy, Date createdOn, String updatedBy,
+			Date updatedOn) {
+		super();
+		Id = id;
+		Name = name;
+		Address = address;
+		this.createdBy = createdBy;
+		this.createdOn = createdOn;
+		this.updatedBy = updatedBy;
+		this.updatedOn = updatedOn;
+	}
+
+	public BankInformationDTO(String name, String address, String createdBy, Date createdOn, String updatedBy,
+			Date updatedOn) {
+		super();
+		Name = name;
+		Address = address;
+		this.createdBy = createdBy;
+		this.createdOn = createdOn;
+		this.updatedBy = updatedBy;
+		this.updatedOn = updatedOn;
+	}
+
+	public BankInformationDTO() {
+		super();
+	}
+
 }

@@ -1,6 +1,7 @@
 package com.rest.eskaysoftAPI.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,67 +20,104 @@ public class BankInformation implements Serializable {
 	private Long bankId;
 	private String Name;
 	private String Address;
+	private String createdBy;
+	private Date createdOn;
+	private String updatedBy;
+	private Date updatedOn;
 
-	public BankInformation() {
-		super();
-	}
-
-	public BankInformation(Long bankId, String name, String address) {
-		super();
-		this.bankId = bankId;
-		Name = name;
-		Address = address;
-	}
-
-	public BankInformation(String name, String address) {
-		super();
-		Name = name;
-		Address = address;
-	}
-
-	/**
-	 * @return the bankId
-	 */
-	public Long getBankId() {
+	public Long getId() {
 		return bankId;
 	}
 
 	/**
-	 * @param bankId
-	 *            the bankId to set
+	 * @param id
+	 *            the id to set
 	 */
+	public void setId(Long id) {
+		this.bankId = id;
+	}
+
+	public Long getBankId() {
+		return bankId;
+	}
+
 	public void setBankId(Long bankId) {
 		this.bankId = bankId;
 	}
 
-	/**
-	 * @return the name
-	 */
 	public String getName() {
 		return Name;
 	}
 
-	/**
-	 * @param name
-	 *            the name to set
-	 */
 	public void setName(String name) {
 		Name = name;
 	}
 
-	/**
-	 * @return the address
-	 */
 	public String getAddress() {
 		return Address;
 	}
 
-	/**
-	 * @param address
-	 *            the address to set
-	 */
 	public void setAddress(String address) {
 		Address = address;
+	}
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public Date getCreatedOn() {
+		return createdOn;
+	}
+
+	public void setCreatedOn(Date createdOn) {
+		this.createdOn = createdOn;
+	}
+
+	public String getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+	public Date getUpdatedOn() {
+		return updatedOn;
+	}
+
+	public void setUpdatedOn(Date updatedOn) {
+		this.updatedOn = updatedOn;
+	}
+
+	public BankInformation(Long id, String name, String address, String createdBy, Date createdOn, String updatedBy,
+			Date updatedOn) {
+		super();
+		this.bankId = id;
+		Name = name;
+		Address = address;
+		this.createdBy = createdBy;
+		this.createdOn = createdOn;
+		this.updatedBy = updatedBy;
+		this.updatedOn = updatedOn;
+	}
+
+	public BankInformation(String name, String address, String createdBy, Date createdOn, String updatedBy,
+			Date updatedOn) {
+		super();
+		Name = name;
+		Address = address;
+		this.createdBy = createdBy;
+		this.createdOn = createdOn;
+		this.updatedBy = updatedBy;
+		this.updatedOn = updatedOn;
+	}
+
+	public BankInformation() {
+		super();
 	}
 
 }

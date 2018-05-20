@@ -25,7 +25,9 @@ public class AccountOpeningsImpl implements AccountOpeningsService {
 			accountOpeningsList = new ArrayList<AccountOpeningsDTO>();
 			for (AccountOpenings Openings : accountOpenings) {
 				AccountOpeningsDTO accountOpeningsDTO = new AccountOpeningsDTO(Openings.getId(), Openings.getCode(),
-						Openings.getAccountName(), Openings.getTown(), Openings.getType(), Openings.getOpenigs());
+						Openings.getAccountName(), Openings.getTown(), Openings.getType(), Openings.getOpenigs(),
+						Openings.getCreatedBy(), Openings.getCreatedOn(), Openings.getUpdatedBy(),
+						Openings.getUpdatedOn());
 				accountOpeningsList.add(accountOpeningsDTO);
 			}
 		}
@@ -40,7 +42,10 @@ public class AccountOpeningsImpl implements AccountOpeningsService {
 			accountOpenings.setAccountName(accountOpeningsDTO.getAccountName());
 			accountOpenings.setOpenigs(accountOpeningsDTO.getTown());
 			accountOpenings.setOpenigs(accountOpeningsDTO.getOpenigs());
-
+			accountOpenings.setCreatedBy(accountOpeningsDTO.getCreatedBy());
+			accountOpenings.setCreatedOn(accountOpeningsDTO.getCreatedOn());
+			accountOpenings.setUpdatedBy(accountOpeningsDTO.getUpdatedBy());
+			accountOpenings.setUpdatedOn(accountOpeningsDTO.getUpdatedOn());
 			accountOpenings = accountOpeningsDao.save(accountOpenings);
 			if (null != accountOpenings) {
 				return accountOpeningsDTO;
@@ -54,7 +59,9 @@ public class AccountOpeningsImpl implements AccountOpeningsService {
 		try {
 			AccountOpenings accountOpenings = new AccountOpenings(accountOpeningsDTO.getCode(),
 					accountOpeningsDTO.getAccountName(), accountOpeningsDTO.getTown(), accountOpeningsDTO.getType(),
-					accountOpeningsDTO.getOpenigs());
+					accountOpeningsDTO.getOpenigs(), accountOpeningsDTO.getCreatedBy(),
+					accountOpeningsDTO.getCreatedOn(), accountOpeningsDTO.getUpdatedBy(),
+					accountOpeningsDTO.getUpdatedOn());
 			AccountOpenings savedaccountOpenings = accountOpeningsDao.save(accountOpenings);
 			return savedaccountOpenings == null ? false : true;
 		} catch (Exception e) {
@@ -80,7 +87,8 @@ public class AccountOpeningsImpl implements AccountOpeningsService {
 		if (accountOpenings != null) {
 			AccountOpeningsDTO accountOpeningsDTO = new AccountOpeningsDTO(accountOpenings.getId(),
 					accountOpenings.getCode(), accountOpenings.getAccountName(), accountOpenings.getTown(),
-					accountOpenings.getType(), accountOpenings.getOpenigs());
+					accountOpenings.getType(), accountOpenings.getOpenigs(), accountOpenings.getCreatedBy(),
+					accountOpenings.getCreatedOn(), accountOpenings.getUpdatedBy(), accountOpenings.getUpdatedOn());
 			return accountOpeningsDTO;
 		}
 		return null;

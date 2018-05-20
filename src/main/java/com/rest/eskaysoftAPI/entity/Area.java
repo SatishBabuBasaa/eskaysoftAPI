@@ -1,6 +1,7 @@
 package com.rest.eskaysoftAPI.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,66 +20,96 @@ public class Area implements Serializable {
 	private Long areaId;
 	private String areaName;
 	private String executiveName;
+	private String createdBy;
+	private Date createdOn;
+	private String updatedBy;
+	private Date updatedOn;
 
-	public Area() {
-		super();
-	}
-
-	public Area(Long areaId, String areaName, String executiveName) {
-		super();
-		this.areaId = areaId;
-		this.areaName = areaName;
-		this.executiveName = executiveName;
-	}
-
-	public Area(String areaName, String executiveName) {
-		super();
-		this.areaName = areaName;
-		this.executiveName = executiveName;
-	}
-
-	/**
-	 * @return the areaId
-	 */
 	public Long getAreaId() {
 		return areaId;
 	}
 
-	/**
-	 * @param areaId
-	 *            the areaId to set
-	 */
 	public void setAreaId(Long areaId) {
 		this.areaId = areaId;
 	}
 
-	/**
-	 * @return the areaName
-	 */
 	public String getAreaName() {
 		return areaName;
 	}
 
-	/**
-	 * @param areaName
-	 *            the areaName to set
-	 */
 	public void setAreaName(String areaName) {
 		this.areaName = areaName;
 	}
 
-	/**
-	 * @return the executiveName
-	 */
 	public String getExecutiveName() {
 		return executiveName;
 	}
 
-	/**
-	 * @param executiveName
-	 *            the executiveName to set
-	 */
 	public void setExecutiveName(String executiveName) {
 		this.executiveName = executiveName;
 	}
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public Date getCreatedOn() {
+		return createdOn;
+	}
+
+	public void setCreatedOn(Date createdOn) {
+		this.createdOn = createdOn;
+	}
+
+	public String getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+	public Date getUpdatedOn() {
+		return updatedOn;
+	}
+
+	public void setUpdatedOn(Date updatedOn) {
+		this.updatedOn = updatedOn;
+	}
+
+	public Long getId() {
+		return areaId;
+	}
+
+	public void setId(Long id) {
+		areaId = id;
+	}
+
+	public Area(Long id, String areaName, String executiveName, String createdBy, Date createdOn, String updatedBy,
+			Date updatedOn) {
+		super();
+		this.areaId = id;
+		this.areaName = areaName;
+		this.executiveName = executiveName;
+		this.createdBy = createdBy;
+		this.createdOn = createdOn;
+		this.updatedBy = updatedBy;
+		this.updatedOn = updatedOn;
+	}
+
+	public Area(String areaName, String executiveName, String createdBy, Date createdOn, String updatedBy,
+			Date updatedOn) {
+		super();
+		this.areaName = areaName;
+		this.executiveName = executiveName;
+		this.createdBy = createdBy;
+		this.createdOn = createdOn;
+		this.updatedBy = updatedBy;
+		this.updatedOn = updatedOn;
+	}
+
 }

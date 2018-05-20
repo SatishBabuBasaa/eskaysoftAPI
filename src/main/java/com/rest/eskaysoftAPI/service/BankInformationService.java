@@ -16,7 +16,7 @@ public interface BankInformationService {
 	 * @param areaId
 	 * @return
 	 */
-	BankInformationDTO getBankInformationById(Long bankId);
+	BankInformationDTO getBankInformationById(Long id);
 
 	/**
 	 * 
@@ -40,4 +40,3 @@ public interface BankInformationService {
 	boolean deleteBankInformation(BankInformationDTO bankinformation);
 
 }
-

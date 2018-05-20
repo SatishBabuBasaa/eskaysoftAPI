@@ -54,8 +54,8 @@ public class BankInformationResource {
 	@GET
 	@Path("/{bankId}")
 	@Produces("application/json")
-	public Response getBankInformationById(@PathParam("bankId") Long bankId) throws URISyntaxException {
-		BankInformationDTO bankinformation = bankinformationService.getBankInformationById(bankId);
+	public Response getBankInformationById(@PathParam("id") Long id) throws URISyntaxException {
+		BankInformationDTO bankinformation = bankinformationService.getBankInformationById(id);
 		return util.buildResponse(bankinformation);
 	}
 
@@ -104,8 +104,8 @@ public class BankInformationResource {
 	 */
 	@DELETE
 	@Path("/{bankId}")
-	public Response deleteBankInformation(@PathParam("bankId") Long bankId) throws URISyntaxException {
-		BankInformationDTO bankinformationDTO = bankinformationService.getBankInformationById(bankId);
+	public Response deleteBankInformation(@PathParam("id") Long id) throws URISyntaxException {
+		BankInformationDTO bankinformationDTO = bankinformationService.getBankInformationById(id);
 		if (bankinformationDTO != null) {
 			boolean isDeleted = bankinformationService.deleteBankInformation(bankinformationDTO);
 			if (isDeleted) {

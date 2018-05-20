@@ -17,7 +17,7 @@ public class Company implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 
-	private Long Id;
+	private Long companyId;
 	private String companyCode;
 	private String companyGroup;
 	private String companyStatus;
@@ -25,12 +25,20 @@ public class Company implements Serializable {
 	private String invPrefix;
 	private String companyType;
 
+	public Long getCompanyId() {
+		return companyId;
+	}
+
+	public void setCompanyId(Long companyId) {
+		this.companyId = companyId;
+	}
+
 	public Long getId() {
-		return Id;
+		return companyId;
 	}
 
 	public void setId(Long id) {
-		Id = id;
+		companyId = id;
 	}
 
 	public String getCompanyCode() {
@@ -88,7 +96,7 @@ public class Company implements Serializable {
 	public Company(Long id, String companyCode, String companyGroup, String companyStatus, String invGenType,
 			String invPrefix, String companyType) {
 		super();
-		Id = id;
+		this.companyId = id;
 		this.companyCode = companyCode;
 		this.companyGroup = companyGroup;
 		this.companyStatus = companyStatus;
@@ -97,21 +105,15 @@ public class Company implements Serializable {
 		this.companyType = companyType;
 	}
 
-	public Company() {
+	public Company(String companyCode, String companyGroup, String companyStatus, String invGenType, String invPrefix,
+			String companyType) {
 		super();
-	}
-
-	public Company(String companyCode, String companyGroup, String companyStatus, String invGenType, String companyType,
-			String invPrefix) {
 		this.companyCode = companyCode;
 		this.companyGroup = companyGroup;
 		this.companyStatus = companyStatus;
 		this.invGenType = invGenType;
-		this.companyType = companyType;
 		this.invPrefix = invPrefix;
+		this.companyType = companyType;
 	}
 
-
-
-	
 }

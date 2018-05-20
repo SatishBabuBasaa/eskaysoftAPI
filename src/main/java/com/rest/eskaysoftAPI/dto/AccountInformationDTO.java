@@ -1,48 +1,56 @@
 package com.rest.eskaysoftAPI.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 
+import com.rest.eskaysoftAPI.entity.Schedule;
+import com.rest.eskaysoftAPI.entity.States;
+import com.rest.eskaysoftAPI.entity.SubSchedule;
 
 public class AccountInformationDTO implements Serializable {
 	private static final long serialVersionUID = 2099654952913091298L;
-	Long id;
-	String accountName;
-	String subSchedule;
-	String schedule;
-	String address1;
-	String address2;
-	String town;
-	String PinDistrict;
-	String state;
-	String areaName;
-	Long phone;
-	Long mobile;
-	String email;
-	String shortName;
-	Long licNo1;
-	Long licNo2;
-	Long licExpiry;
-	Long retLicNo1;
-	Long retLicNo2;
-	Long retExpiry;
-	Long foodLicNo;
-	String otherLicense;
-	String otherLicenseExpiry;
-	String gstType;
-	String gstIN;
-	String natureOfGST;
-	Long uinNo;
-	String saleType;
-	String customerType;
-	String creditLimit;
-	Long dueDays;
-	String contactPerson;
-	String hsnCode;
-	String sacCode;
-	String rateOfTax;
-	String openingBalance;
-	String openingType;
-	String specialRAemarks;
+	private Long id;
+	private String accountName;
+	//private SubSchedule subSchedule;
+	private Schedule schedule;
+	private String address1;
+	private String address2;
+	private String town;
+	private String PinDistrict;
+	private States state;
+	private String areaName;
+	private Long phone;
+	private Long mobile;
+	private String email;
+	private String shortName;
+	private Long licNo1;
+	private Long licNo2;
+	private Long licExpiry;
+	private Long retLicNo1;
+	private Long retLicNo2;
+	private Long retExpiry;
+	private Long foodLicNo;
+	private String otherLicense;
+	private String otherLicenseExpiry;
+	private String gstType;
+	private String gstIN;
+	private String natureOfGST;
+	private Long uinNo;
+	private String saleType;
+	private String customerType;
+	private String creditLimit;
+	private Long dueDays;
+	private String contactPerson;
+	private String hsnCode;
+	private String sacCode;
+	private String rateOfTax;
+	private String openingBalance;
+	private String openingType;
+	private String specialRAemarks;
+	private String createdBy;
+	private Date createdOn;
+	private String updatedBy;
+	private Date updatedOn;
 
 	public Long getId() {
 		return id;
@@ -60,19 +68,19 @@ public class AccountInformationDTO implements Serializable {
 		this.accountName = accountName;
 	}
 
-	public String getSubSchedule() {
+	/*public SubSchedule getSubSchedule() {
 		return subSchedule;
 	}
 
-	public void setSubSchedule(String subSchedule) {
+	public void setSubSchedule(SubSchedule subSchedule) {
 		this.subSchedule = subSchedule;
 	}
-
-	public String getSchedule() {
+*/
+	public Schedule getSchedule() {
 		return schedule;
 	}
 
-	public void setSchedule(String schedule) {
+	public void setSchedule(Schedule schedule) {
 		this.schedule = schedule;
 	}
 
@@ -108,11 +116,11 @@ public class AccountInformationDTO implements Serializable {
 		PinDistrict = pinDistrict;
 	}
 
-	public String getState() {
+	public States getState() {
 		return state;
 	}
 
-	public void setState(String state) {
+	public void setState(States state) {
 		this.state = state;
 	}
 
@@ -348,17 +356,50 @@ public class AccountInformationDTO implements Serializable {
 		this.specialRAemarks = specialRAemarks;
 	}
 
-	public AccountInformationDTO(Long id, String accountName, String subSchedule, String schedule, String address1,
-			String address2, String town, String pinDistrict, String state, String areaName, Long phone, Long mobile,
-			String email, String shortName, Long licNo1, Long licNo2, Long licExpiry, Long retLicNo1, Long retLicNo2,
-			Long retExpiry, Long foodLicNo, String otherLicense, String otherLicenseExpiry, String gstType,
-			String gstIN, String natureOfGST, Long uinNo, String saleType, String customerType, String creditLimit,
-			Long dueDays, String contactPerson, String hsnCode, String sacCode, String rateOfTax, String openingBalance,
-			String openingType, String specialRAemarks) {
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public Date getCreatedOn() {
+		return createdOn;
+	}
+
+	public void setCreatedOn(Date createdOn) {
+		this.createdOn = createdOn;
+	}
+
+	public String getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+	public Date getUpdatedOn() {
+		return updatedOn;
+	}
+
+	public void setUpdatedOn(Date updatedOn) {
+		this.updatedOn = updatedOn;
+	}
+
+	public AccountInformationDTO(Long id, String accountName, Schedule schedule,
+			String address1, String address2, String town, String pinDistrict, States state, String areaName,
+			Long phone, Long mobile, String email, String shortName, Long licNo1, Long licNo2, Long licExpiry,
+			Long retLicNo1, Long retLicNo2, Long retExpiry, Long foodLicNo, String otherLicense,
+			String otherLicenseExpiry, String gstType, String gstIN, String natureOfGST, Long uinNo, String saleType,
+			String customerType, String creditLimit, Long dueDays, String contactPerson, String hsnCode, String sacCode,
+			String rateOfTax, String openingBalance, String openingType, String specialRAemarks, String createdBy,
+			Date createdOn, String updatedBy, Date updatedOn) {
 		super();
 		this.id = id;
 		this.accountName = accountName;
-		this.subSchedule = subSchedule;
+		//this.subSchedule = subSchedule;
 		this.schedule = schedule;
 		this.address1 = address1;
 		this.address2 = address2;
@@ -394,6 +435,10 @@ public class AccountInformationDTO implements Serializable {
 		this.openingBalance = openingBalance;
 		this.openingType = openingType;
 		this.specialRAemarks = specialRAemarks;
+		this.createdBy = createdBy;
+		this.createdOn = createdOn;
+		this.updatedBy = updatedBy;
+		this.updatedOn = updatedOn;
 	}
 
 }

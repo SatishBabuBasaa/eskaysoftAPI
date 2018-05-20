@@ -1,7 +1,8 @@
 package com.rest.eskaysoftAPI.entity;
 
 import java.io.Serializable;
-
+import java.util.Date;
+import com.rest.eskaysoftAPI.entity.States;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,51 +15,122 @@ public class AccountInformation implements Serializable {
 	private static final long serialVersionUID = 2099654952913091298L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long id;
+	private Long accountInformationId;
 	String accountName;
-	String subSchedule;
-	String schedule;
-	String address1;
-	String address2;
-	String town;
-	String pinDistrict;
-	String state;
-	String areaName;
-	Long phone;
-	Long mobile;
-	String email;
-	String shortName;
-	Long licNo1;
-	Long licNo2;
-	Long licExpiry;
-	Long retLicNo1;
-	Long retLicNo2;
-	Long retExpiry;
-	Long foodLicNo;
-	String otherLicense;
-	String otherLicenseExpiry;
-	String gstType;
-	String gstIN;
-	String natureOfGST;
-	Long uinNo;
-	String saleType;
-	String customerType;
-	String creditLimit;
-	Long dueDays;
-	String contactPerson;
-	String hsnCode;
-	String sacCode;
-	String rateOfTax;
-	String openingBalance;
-	String openingType;
-	String specialRAemarks;
+	// private SubSchedule subSchedule;
+	private Schedule schedule;
+	private String address1;
+	private String address2;
+	private String town;
+	private String pinDistrict;
+	private States state;
+	private String areaName;
+	private Long phone;
+	private Long mobile;
+	private String email;
+	private String shortName;
+	private Long licNo1;
+	private Long licNo2;
+	private Long licExpiry;
+	private Long retLicNo1;
+	private Long retLicNo2;
+	private Long retExpiry;
+	private Long foodLicNo;
+	private String otherLicense;
+	private String otherLicenseExpiry;
+	private String gstType;
+	private String gstIN;
+	private String natureOfGST;
+	private Long uinNo;
+	private String saleType;
+	private String customerType;
+	private String creditLimit;
+	private Long dueDays;
+	private String contactPerson;
+	private String hsnCode;
+	private String sacCode;
+	private String rateOfTax;
+	private String openingBalance;
+	private String openingType;
+	private String specialRAemarks;
+	private String createdBy;
+	private Date createdOn;
+	private String updatedBy;
+	private Date updatedOn;
 
-	public Long getId() {
-		return id;
+	/*
+	 * public SubSchedule getSubSchedule() { return subSchedule; }
+	 * 
+	 * public void setSubSchedule(SubSchedule subSchedule) { this.subSchedule =
+	 * subSchedule; }
+	 */
+
+	public Schedule getSchedule() {
+		return schedule;
 	}
 
+	public void setSchedule(Schedule schedule) {
+		this.schedule = schedule;
+	}
+
+	public States getState() {
+		return state;
+	}
+
+	public void setState(States state) {
+		this.state = state;
+	}
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public Date getCreatedOn() {
+		return createdOn;
+	}
+
+	public void setCreatedOn(Date createdOn) {
+		this.createdOn = createdOn;
+	}
+
+	public String getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+	public Date getUpdatedOn() {
+		return updatedOn;
+	}
+
+	public void setUpdatedOn(Date updatedOn) {
+		this.updatedOn = updatedOn;
+	}
+
+	public Long getId() {
+		return accountInformationId;
+	}
+
+	/**
+	 * @param id
+	 *            the id to set
+	 */
 	public void setId(Long id) {
-		this.id = id;
+		this.accountInformationId = id;
+	}
+
+	public Long getAccountInformationId() {
+		return accountInformationId;
+	}
+
+	public void setAccountInformationId(Long accountInformationId) {
+		this.accountInformationId = accountInformationId;
 	}
 
 	public String getAccountName() {
@@ -67,22 +139,6 @@ public class AccountInformation implements Serializable {
 
 	public void setAccountName(String accountName) {
 		this.accountName = accountName;
-	}
-
-	public String getSubSchedule() {
-		return subSchedule;
-	}
-
-	public void setSubSchedule(String subSchedule) {
-		this.subSchedule = subSchedule;
-	}
-
-	public String getSchedule() {
-		return schedule;
-	}
-
-	public void setSchedule(String schedule) {
-		this.schedule = schedule;
 	}
 
 	public String getAddress1() {
@@ -115,14 +171,6 @@ public class AccountInformation implements Serializable {
 
 	public void setPinDistrict(String pinDistrict) {
 		this.pinDistrict = pinDistrict;
-	}
-
-	public String getState() {
-		return state;
-	}
-
-	public void setState(String state) {
-		this.state = state;
 	}
 
 	public String getAreaName() {
@@ -357,17 +405,18 @@ public class AccountInformation implements Serializable {
 		this.specialRAemarks = specialRAemarks;
 	}
 
-	public AccountInformation(Long id, String accountName, String subSchedule, String schedule, String address1,
-			String address2, String town, String pinDistrict, String state, String areaName, Long phone, Long mobile,
+	public AccountInformation(Long accountInformationId, String accountName, Schedule schedule, String address1,
+			String address2, String town, String pinDistrict, States state, String areaName, Long phone, Long mobile,
 			String email, String shortName, Long licNo1, Long licNo2, Long licExpiry, Long retLicNo1, Long retLicNo2,
 			Long retExpiry, Long foodLicNo, String otherLicense, String otherLicenseExpiry, String gstType,
 			String gstIN, String natureOfGST, Long uinNo, String saleType, String customerType, String creditLimit,
 			Long dueDays, String contactPerson, String hsnCode, String sacCode, String rateOfTax, String openingBalance,
-			String openingType, String specialRAemarks) {
+			String openingType, String specialRAemarks, String createdBy, Date createdOn, String updatedBy,
+			Date updatedOn) {
 		super();
-		this.id = id;
+		this.accountInformationId = accountInformationId;
 		this.accountName = accountName;
-		this.subSchedule = subSchedule;
+		// this.subSchedule = subSchedule;
 		this.schedule = schedule;
 		this.address1 = address1;
 		this.address2 = address2;
@@ -403,6 +452,10 @@ public class AccountInformation implements Serializable {
 		this.openingBalance = openingBalance;
 		this.openingType = openingType;
 		this.specialRAemarks = specialRAemarks;
+		this.createdBy = createdBy;
+		this.createdOn = createdOn;
+		this.updatedBy = updatedBy;
+		this.updatedOn = updatedOn;
 	}
 
 }

@@ -7,9 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.rest.eskaysoftAPI.dao.StatesDao;
-import com.rest.eskaysoftAPI.dto.ScheduleDTO;
 import com.rest.eskaysoftAPI.dto.StateDTO;
-import com.rest.eskaysoftAPI.entity.Schedule;
 import com.rest.eskaysoftAPI.entity.States;
 import com.rest.eskaysoftAPI.service.StateService;
 

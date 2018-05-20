@@ -1,6 +1,7 @@
 package com.rest.eskaysoftAPI.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,42 +16,31 @@ public class AccountOpenings implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long Id;
+	private Long accountOpeningsId;
 	private String code;
 	private String accountName;
 	private String town;
 	private String openigs;
 	private String type;
+	private String createdBy;
+	private Date createdOn;
+	private String updatedBy;
+	private Date updatedOn;
 
-	public AccountOpenings() {
-		super();
+	public Long getAccountOpeningsId() {
+		return accountOpeningsId;
 	}
 
-	public AccountOpenings(String code, String accountName, String town, String openigs, String type) {
-		super();
-		this.code = code;
-		this.accountName = accountName;
-		this.town = town;
-		this.openigs = openigs;
-		this.type = type;
-	}
-
-	public AccountOpenings(Long id, String code, String accountName, String town, String openigs, String type) {
-		super();
-		Id = id;
-		this.code = code;
-		this.accountName = accountName;
-		this.town = town;
-		this.openigs = openigs;
-		this.type = type;
+	public void setAccountOpeningsId(Long accountOpeningsId) {
+		this.accountOpeningsId = accountOpeningsId;
 	}
 
 	public Long getId() {
-		return Id;
+		return accountOpeningsId;
 	}
 
 	public void setId(Long id) {
-		Id = id;
+		accountOpeningsId = id;
 	}
 
 	public String getCode() {
@@ -91,6 +81,71 @@ public class AccountOpenings implements Serializable {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public Date getCreatedOn() {
+		return createdOn;
+	}
+
+	public void setCreatedOn(Date createdOn) {
+		this.createdOn = createdOn;
+	}
+
+	public String getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+	public Date getUpdatedOn() {
+		return updatedOn;
+	}
+
+	public void setUpdatedOn(Date updatedOn) {
+		this.updatedOn = updatedOn;
+	}
+
+	public AccountOpenings(Long id, String code, String accountName, String town, String openigs, String type,
+			String createdBy, Date createdOn, String updatedBy, Date updatedOn) {
+		super();
+		accountOpeningsId = id;
+		this.code = code;
+		this.accountName = accountName;
+		this.town = town;
+		this.openigs = openigs;
+		this.type = type;
+		this.createdBy = createdBy;
+		this.createdOn = createdOn;
+		this.updatedBy = updatedBy;
+		this.updatedOn = updatedOn;
+	}
+
+	public AccountOpenings(String code, String accountName, String town, String openigs, String type, String createdBy,
+			Date createdOn, String updatedBy, Date updatedOn) {
+		super();
+		this.code = code;
+		this.accountName = accountName;
+		this.town = town;
+		this.openigs = openigs;
+		this.type = type;
+		this.createdBy = createdBy;
+		this.createdOn = createdOn;
+		this.updatedBy = updatedBy;
+		this.updatedOn = updatedOn;
+	}
+
+	public AccountOpenings() {
+		super();
 	}
 
 }

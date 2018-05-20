@@ -16,7 +16,7 @@ public interface AreaService {
 	 * @param areaId
 	 * @return
 	 */
-	AreaDTO getAreaById(Long areaId);
+	AreaDTO getAreaById(Long id);
 
 	/**
 	 * 

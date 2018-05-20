@@ -1,43 +1,58 @@
 package com.rest.eskaysoftAPI.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class CustomerWiseDiscountsDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private Long id;
-
-	public CustomerWiseDiscountsDTO(String customer, String companyOption, String discount, String companyDiscription,
-			String disc) {
-		super();
-		this.customer = customer;
-		this.companyOption = companyOption;
-		this.discount = discount;
-		this.companyDiscription = companyDiscription;
-		this.disc = disc;
-	}
-
-	public CustomerWiseDiscountsDTO() {
-		super();
-	}
+	private Long Id;
+	private String customer;
+	private String companyOption;
+	private String discount;
+	private String companyDiscription;
+	private String disc;
+	private String createdBy;
+	private Date createdOn;
+	private String updatedBy;
+	private Date updatedOn;
 
 	public CustomerWiseDiscountsDTO(Long id, String customer, String companyOption, String discount,
-			String companyDiscription, String disc) {
+			String companyDiscription, String disc, String createdBy, Date createdOn, String updatedBy,
+			Date updatedOn) {
 		super();
-		this.id = id;
+		Id = id;
 		this.customer = customer;
 		this.companyOption = companyOption;
 		this.discount = discount;
 		this.companyDiscription = companyDiscription;
 		this.disc = disc;
+		this.createdBy = createdBy;
+		this.createdOn = createdOn;
+		this.updatedBy = updatedBy;
+		this.updatedOn = updatedOn;
+	}
+
+	public CustomerWiseDiscountsDTO(String customer, String companyOption, String discount, String companyDiscription,
+			String disc, String createdBy, Date createdOn, String updatedBy, Date updatedOn) {
+		super();
+		this.customer = customer;
+		this.companyOption = companyOption;
+		this.discount = discount;
+		this.companyDiscription = companyDiscription;
+		this.disc = disc;
+		this.createdBy = createdBy;
+		this.createdOn = createdOn;
+		this.updatedBy = updatedBy;
+		this.updatedOn = updatedOn;
 	}
 
 	public Long getId() {
-		return id;
+		return Id;
 	}
 
 	public void setId(Long id) {
-		this.id = id;
+		Id = id;
 	}
 
 	public String getCustomer() {
@@ -80,17 +95,40 @@ public class CustomerWiseDiscountsDTO implements Serializable {
 		this.disc = disc;
 	}
 
-	/*
-	 * public String getcDisc() { return cDisc; }
-	 * 
-	 * public void setcDisc(String cDisc) { this.cDisc = cDisc; }
-	 */
+	public String getCreatedBy() {
+		return createdBy;
+	}
 
-	private String customer;
-	private String companyOption;
-	private String discount;
-	private String companyDiscription;
-	private String disc;
-	// private String cDisc;
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public Date getCreatedOn() {
+		return createdOn;
+	}
+
+	public void setCreatedOn(Date createdOn) {
+		this.createdOn = createdOn;
+	}
+
+	public String getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+	public Date getUpdatedOn() {
+		return updatedOn;
+	}
+
+	public void setUpdatedOn(Date updatedOn) {
+		this.updatedOn = updatedOn;
+	}
+
+	public CustomerWiseDiscountsDTO() {
+		super();
+	}
 
 }

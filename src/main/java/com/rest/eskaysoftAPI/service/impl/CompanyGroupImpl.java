@@ -25,7 +25,8 @@ public class CompanyGroupImpl implements CompanyGroupService {
 			companiesGroupList = new ArrayList<CompanyGroupDTO>();
 			for (CompanyGroup comp : companiesGroup) {
 				CompanyGroupDTO companiesGroupDTO = new CompanyGroupDTO(comp.getId(), comp.getCompany(),
-						comp.getCompanyGroup());
+						comp.getCompanyGroup(), comp.getCreatedBy(), comp.getCreatedOn(), comp.getUpdatedBy(),
+						comp.getUpdatedOn());
 				companiesGroupList.add(companiesGroupDTO);
 			}
 		}
@@ -40,6 +41,11 @@ public class CompanyGroupImpl implements CompanyGroupService {
 			companiesGroup.setCompany(companiesGroupDTO.getCompany());
 			companiesGroup.setCompanyGroup(companiesGroupDTO.getCompanyGroup());
 			companiesGroup = companyGroupDao.save(companiesGroup);
+			companiesGroup.setCreatedBy(companiesGroupDTO.getCreatedBy());
+			companiesGroup.setCreatedOn(companiesGroupDTO.getCreatedOn());
+			companiesGroup.setUpdatedBy(companiesGroupDTO.getUpdatedBy());
+			companiesGroup.setUpdatedOn(companiesGroupDTO.getUpdatedOn());
+
 			if (null != companiesGroup) {
 				return companiesGroupDTO;
 			}
@@ -51,7 +57,9 @@ public class CompanyGroupImpl implements CompanyGroupService {
 	public boolean createCompanyGroup(CompanyGroupDTO companiesGroupDTO) {
 		try {
 			CompanyGroup companiesGroup = new CompanyGroup(companiesGroupDTO.getId(), companiesGroupDTO.getCompany(),
-					companiesGroupDTO.getCompanyGroup());
+					companiesGroupDTO.getCompanyGroup(), companiesGroupDTO.getCreatedBy(),
+					companiesGroupDTO.getCreatedOn(), companiesGroupDTO.getUpdatedBy(),
+					companiesGroupDTO.getUpdatedOn());
 			CompanyGroup savedCompanyGroup = companyGroupDao.save(companiesGroup);
 			return savedCompanyGroup == null ? false : true;
 		} catch (Exception e) {
@@ -76,7 +84,8 @@ public class CompanyGroupImpl implements CompanyGroupService {
 		CompanyGroup companiesGroup = companyGroupDao.findOne(id);
 		if (companiesGroup != null) {
 			CompanyGroupDTO companiesGroupDTO = new CompanyGroupDTO(companiesGroup.getId(), companiesGroup.getCompany(),
-					companiesGroup.getCompanyGroup());
+					companiesGroup.getCompanyGroup(), companiesGroup.getCreatedBy(), companiesGroup.getCreatedOn(),
+					companiesGroup.getUpdatedBy(), companiesGroup.getUpdatedOn());
 			return companiesGroupDTO;
 		}
 		return null;

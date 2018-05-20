@@ -1,6 +1,7 @@
 package com.rest.eskaysoftAPI.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import com.rest.eskaysoftAPI.entity.Company;
 
@@ -12,22 +13,13 @@ public class CompanyGroupDTO implements Serializable {
 	private Long Id;
 	private Company company;
 	private String companyGroup;
+	private String createdBy;
+	private Date createdOn;
+	private String updatedBy;
+	private Date updatedOn;
 
 	public CompanyGroupDTO() {
 		super();
-	}
-
-	public CompanyGroupDTO(Company company, String companyGroup) {
-		super();
-		this.company = company;
-		this.companyGroup = companyGroup;
-	}
-
-	public CompanyGroupDTO(Long id, Company company, String companyGroup) {
-		super();
-		Id = id;
-		this.company = company;
-		this.companyGroup = companyGroup;
 	}
 
 	public Company getCompany() {
@@ -54,5 +46,59 @@ public class CompanyGroupDTO implements Serializable {
 		Id = id;
 	}
 
-	
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public Date getCreatedOn() {
+		return createdOn;
+	}
+
+	public void setCreatedOn(Date createdOn) {
+		this.createdOn = createdOn;
+	}
+
+	public String getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+	public Date getUpdatedOn() {
+		return updatedOn;
+	}
+
+	public void setUpdatedOn(Date updatedOn) {
+		this.updatedOn = updatedOn;
+	}
+
+	public CompanyGroupDTO(Long id, Company company, String companyGroup, String createdBy, Date createdOn,
+			String updatedBy, Date updatedOn) {
+		super();
+		Id = id;
+		this.company = company;
+		this.companyGroup = companyGroup;
+		this.createdBy = createdBy;
+		this.createdOn = createdOn;
+		this.updatedBy = updatedBy;
+		this.updatedOn = updatedOn;
+	}
+
+	public CompanyGroupDTO(Company company, String companyGroup, String createdBy, Date createdOn, String updatedBy,
+			Date updatedOn) {
+		super();
+		this.company = company;
+		this.companyGroup = companyGroup;
+		this.createdBy = createdBy;
+		this.createdOn = createdOn;
+		this.updatedBy = updatedBy;
+		this.updatedOn = updatedOn;
+	}
+
 }
