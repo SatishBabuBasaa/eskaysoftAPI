@@ -1,8 +1,11 @@
 package com.rest.eskaysoftAPI.dto;
 
+import java.util.Date;
+
 import javax.persistence.CascadeType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
 
 import com.rest.eskaysoftAPI.entity.Product;
 
@@ -50,10 +53,16 @@ public class PurchaseEntryDTO {
 	private float DebitAdjustmentValue;
 	private float CreditAdjustmentValue;
 	private float InvoiceValue;
+	private String createdBy;
+	private Date createdOn;
+	private String updatedBy;
+	private Date updatedOn;
 
 	public PurchaseEntryDTO() {
 		super();
 	}
+
+	
 
 	public PurchaseEntryDTO(Long purchaseId, Long purchaseNumber, Long invoiceNumber, String supplier, String gSTIN,
 			Long wayBillNumber, String transport, String cS, String date, String invoiceDate, String mode,
@@ -62,7 +71,8 @@ public class PurchaseEntryDTO {
 			float mRP, String mfgName, float grossValue, float discountValue, float taxValue, float netValue,
 			float gSTPercent, String taxable, float cGSTAmount, float sGSTAmount, Long debitAdjustmentLedger,
 			Long creditAdjustmentLedger, String remarks, float debitAdjustmentValue, float creditAdjustmentValue,
-			float invoiceValue) {
+			float invoiceValue, String createdBy, java.util.Date createdOn, String updatedBy,
+			java.util.Date updatedOn) {
 		super();
 		PurchaseId = purchaseId;
 		PurchaseNumber = purchaseNumber;
@@ -104,7 +114,15 @@ public class PurchaseEntryDTO {
 		DebitAdjustmentValue = debitAdjustmentValue;
 		CreditAdjustmentValue = creditAdjustmentValue;
 		InvoiceValue = invoiceValue;
+		this.createdBy = createdBy;
+		this.createdOn = createdOn;
+		this.updatedBy = updatedBy;
+		this.updatedOn = updatedOn;
 	}
+
+
+
+	
 
 	public PurchaseEntryDTO(Long purchaseNumber, Long invoiceNumber, String supplier, String gSTIN, Long wayBillNumber,
 			String transport, String cS, String date, String invoiceDate, String mode, Long lRNumber, String lRDate,
@@ -112,7 +130,8 @@ public class PurchaseEntryDTO {
 			float grsValue, float discount, float pTD, float saleRate, String hSN, float mRP, String mfgName,
 			float grossValue, float discountValue, float taxValue, float netValue, float gSTPercent, String taxable,
 			float cGSTAmount, float sGSTAmount, Long debitAdjustmentLedger, Long creditAdjustmentLedger, String remarks,
-			float debitAdjustmentValue, float creditAdjustmentValue, float invoiceValue) {
+			float debitAdjustmentValue, float creditAdjustmentValue, float invoiceValue, String createdBy,
+			java.util.Date createdOn, String updatedBy, java.util.Date updatedOn) {
 		super();
 		PurchaseNumber = purchaseNumber;
 		InvoiceNumber = invoiceNumber;
@@ -153,7 +172,13 @@ public class PurchaseEntryDTO {
 		DebitAdjustmentValue = debitAdjustmentValue;
 		CreditAdjustmentValue = creditAdjustmentValue;
 		InvoiceValue = invoiceValue;
+		this.createdBy = createdBy;
+		this.createdOn = createdOn;
+		this.updatedBy = updatedBy;
+		this.updatedOn = updatedOn;
 	}
+
+
 
 	/**
 	 * @return the purchaseId
@@ -754,5 +779,78 @@ public class PurchaseEntryDTO {
 	public void setInvoiceValue(float invoiceValue) {
 		InvoiceValue = invoiceValue;
 	}
+
+
+
+	/**
+	 * @return the createdBy
+	 */
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+
+
+	/**
+	 * @param createdBy the createdBy to set
+	 */
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+
+
+	/**
+	 * @return the createdOn
+	 */
+	public Date getCreatedOn() {
+		return createdOn;
+	}
+
+
+
+	/**
+	 * @param createdOn the createdOn to set
+	 */
+	public void setCreatedOn(Date createdOn) {
+		this.createdOn = createdOn;
+	}
+
+
+
+	/**
+	 * @return the updatedBy
+	 */
+	public String getUpdatedBy() {
+		return updatedBy;
+	}
+
+
+
+	/**
+	 * @param updatedBy the updatedBy to set
+	 */
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+
+
+	/**
+	 * @return the updatedOn
+	 */
+	public Date getUpdatedOn() {
+		return updatedOn;
+	}
+
+
+
+	/**
+	 * @param updatedOn the updatedOn to set
+	 */
+	public void setUpdatedOn(Date updatedOn) {
+		this.updatedOn = updatedOn;
+	}
+	
 
 }

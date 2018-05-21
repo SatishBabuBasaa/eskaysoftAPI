@@ -37,7 +37,8 @@ public class PurchaseEntryServiceImpl implements PurchaseEntryService {
 						purchaseentries.getNetValue(), purchaseentries.getTaxable(), purchaseentries.getOtherCharges(),
 						purchaseentries.getPTD(), purchaseentries.getPurchaseId(), purchaseentries.getPurchaseNumber(),
 						purchaseentries.getTransport(), purchaseentries.getSaleRate(), purchaseentries.getSGSTAmount(),
-						purchaseentries.getTaxValue());
+						purchaseentries.getTaxValue(),purchaseentries.getCreatedBy(),purchaseentries.getCreatedOn(),
+						purchaseentries.getUpdatedBy(),purchaseentries.getUpdatedOn());
 				purchaseEntryList.add(purchaseEntryDTO);
 			}
 		}
@@ -63,7 +64,8 @@ public class PurchaseEntryServiceImpl implements PurchaseEntryService {
 					purchaseentry.getNetValue(), purchaseentry.getTaxable(), purchaseentry.getOtherCharges(),
 					purchaseentry.getPTD(), purchaseentry.getPurchaseId(), purchaseentry.getPurchaseNumber(),
 					purchaseentry.getTransport(), purchaseentry.getSaleRate(), purchaseentry.getSGSTAmount(),
-					purchaseentry.getTaxValue());
+					purchaseentry.getTaxValue(),purchaseentry.getCreatedBy(),purchaseentry.getCreatedOn(),
+					purchaseentry.getUpdatedBy(),purchaseentry.getUpdatedOn());
 			return purchaseEntryDTO;
 		}
 		return null;
@@ -113,6 +115,10 @@ public class PurchaseEntryServiceImpl implements PurchaseEntryService {
 			purchaseentry.setSaleRate(purchaseEntryDTO.getSaleRate());
 			purchaseentry.setSGSTAmount(purchaseEntryDTO.getSGSTAmount());
 			purchaseentry.setTaxValue(purchaseEntryDTO.getTaxValue());
+			purchaseentry.setCreatedBy(purchaseEntryDTO.getCreatedBy());
+			purchaseentry.setCreatedOn(purchaseEntryDTO.getCreatedOn());
+			purchaseentry.setUpdatedBy(purchaseEntryDTO.getUpdatedBy());
+			purchaseentry.setUpdatedOn(purchaseEntryDTO.getUpdatedOn());
 			if (null != purchaseentry) {
 				return purchaseEntryDTO;
 			}
@@ -138,7 +144,8 @@ public class PurchaseEntryServiceImpl implements PurchaseEntryService {
 					purchaseEntryDTO.getNetValue(), purchaseEntryDTO.getTaxable(), purchaseEntryDTO.getOtherCharges(),
 					purchaseEntryDTO.getPTD(), purchaseEntryDTO.getPurchaseId(), purchaseEntryDTO.getPurchaseNumber(),
 					purchaseEntryDTO.getTransport(), purchaseEntryDTO.getSaleRate(), purchaseEntryDTO.getSGSTAmount(),
-					purchaseEntryDTO.getTaxValue());
+					purchaseEntryDTO.getTaxValue(),purchaseEntryDTO.getCreatedBy(),purchaseEntryDTO.getCreatedOn(),
+					purchaseEntryDTO.getUpdatedBy(),purchaseEntryDTO.getUpdatedOn());
 			PurchaseEntry savedPurchaseEntry = purchaseEntryDao.save(purchaseentry);
 			return savedPurchaseEntry == null ? false : true;
 		} catch (Exception e) {

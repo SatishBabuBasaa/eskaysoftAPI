@@ -26,7 +26,8 @@ public class ProductGroupServiceImpl implements ProductGroupService {
 			productgroupList = new ArrayList<ProductGroupDTO>();
 			for (ProductGroup productgroups : productgroup) {
 				ProductGroupDTO productgroupDTO = new ProductGroupDTO(productgroups.getProductGroupId(),
-						productgroups.getProductGroupName());
+						productgroups.getProductGroupName(),productgroups.getCreatedBy(),productgroups.getCreatedOn(),
+						productgroups.getUpdatedBy(),productgroups.getUpdatedOn());
 				productgroupList.add(productgroupDTO);
 			}
 		}
@@ -38,6 +39,11 @@ public class ProductGroupServiceImpl implements ProductGroupService {
 		ProductGroup productgroup = productGroupDao.findOne(productgroupDTO.getProductGroupId());
 		if (productgroup != null) {
 			productgroup.setProductGroupName(productgroupDTO.getProductGroupName());
+			productgroup.setCreatedBy(productgroupDTO.getCreatedBy());
+			productgroup.setCreatedOn(productgroupDTO.getCreatedOn());
+			productgroup.setUpdatedBy(productgroupDTO.getUpdatedBy());
+			productgroup.setUpdatedOn(productgroupDTO.getUpdatedOn());
+			
 			productgroup = productGroupDao.save(productgroup);
 			if (null != productgroup) {
 				return productgroupDTO;
@@ -49,7 +55,9 @@ public class ProductGroupServiceImpl implements ProductGroupService {
 	@Override
 	public boolean createProductGroup(ProductGroupDTO productgroupDTO) {
 		try {
-			ProductGroup productgroup = new ProductGroup(productgroupDTO.getProductGroupName());
+			ProductGroup productgroup = new ProductGroup(productgroupDTO.getProductGroupName(),productgroupDTO.getCreatedBy()
+					,productgroupDTO.getCreatedOn(),
+					productgroupDTO.getUpdatedBy(),productgroupDTO.getUpdatedOn());
 			ProductGroup savedProductGroup = productGroupDao.save(productgroup);
 			return savedProductGroup == null ? false : true;
 		} catch (Exception e) {
@@ -74,7 +82,8 @@ public class ProductGroupServiceImpl implements ProductGroupService {
 		ProductGroup productgroup = productGroupDao.findOne(productGroupId);
 		if (productgroup != null) {
 			ProductGroupDTO productgroupDTO = new ProductGroupDTO(productgroup.getProductGroupId(),
-					productgroup.getProductGroupName());
+					productgroup.getProductGroupName(),productgroup.getCreatedBy(),productgroup.getCreatedOn(),
+					productgroup.getUpdatedBy(),productgroup.getUpdatedOn());
 			return productgroupDTO;
 		}
 		return null;

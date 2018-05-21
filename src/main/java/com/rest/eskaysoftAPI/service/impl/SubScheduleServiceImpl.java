@@ -24,9 +24,10 @@ public class SubScheduleServiceImpl implements SubScheduleService {
 			subScheduleList = new ArrayList<SubScheduleDTO>();
 			for (SubSchedule subschedule : subschedules) {
 				SubScheduleDTO subScheduleDTO = new SubScheduleDTO(subschedule.getSubScheduleId(),
-						subschedule.getSubScheduleName(), subschedule.getSubScheduleIndex(),
-						subschedule.getSubScheduleType(), subschedule.getCredit(), subschedule.getDebit(),
-						subschedule.getSchedule());
+						subschedule.getSubScheduleName(), subschedule.getSubScheduleType(),
+						subschedule.getSubScheduleIndex(), subschedule.getCredit(), subschedule.getDebit(),
+						subschedule.getSchedule(),subschedule.getCreatedBy(),subschedule.getCreatedOn(),
+						subschedule.getUpdatedBy(),subschedule.getUpdatedOn());
 				subScheduleList.add(subScheduleDTO);
 			}
 		}
@@ -39,9 +40,10 @@ public class SubScheduleServiceImpl implements SubScheduleService {
 		SubSchedule subschedule = subScheduleDao.findOne(subScheduleId);
 		if (subschedule != null) {
 			SubScheduleDTO subScheduleDTO = new SubScheduleDTO(subschedule.getSubScheduleId(),
-					subschedule.getSubScheduleName(), subschedule.getSubScheduleIndex(),
-					subschedule.getSubScheduleType(), subschedule.getCredit(), subschedule.getDebit(),
-					subschedule.getSchedule());
+					subschedule.getSubScheduleName(), subschedule.getSubScheduleType(),
+					subschedule.getSubScheduleIndex(), subschedule.getCredit(), subschedule.getDebit(),
+					subschedule.getSchedule(),subschedule.getCreatedBy(),subschedule.getCreatedOn(),
+					subschedule.getUpdatedBy(),subschedule.getUpdatedOn());
 			return subScheduleDTO;
 		}
 		return null;
@@ -58,6 +60,11 @@ public class SubScheduleServiceImpl implements SubScheduleService {
 			subschedule.setCredit(subScheduleDTO.getCredit());
 			subschedule.setDebit(subScheduleDTO.getDebit());
 			subschedule.setSchedule(subScheduleDTO.getSchedule());
+			subschedule.setCreatedBy(subScheduleDTO.getCreatedBy());
+			subschedule.setCreatedOn(subScheduleDTO.getCreatedOn());
+			subschedule.setUpdatedBy(subScheduleDTO.getUpdatedBy());
+			subschedule.setUpdatedOn(subScheduleDTO.getUpdatedOn());
+			
 			subschedule = subScheduleDao.save(subschedule);
 			if (null != subschedule) {
 				return subScheduleDTO;
@@ -71,8 +78,10 @@ public class SubScheduleServiceImpl implements SubScheduleService {
 	public boolean createSubSchedule(SubScheduleDTO subScheduleDTO) {
 		try {
 			SubSchedule subschedule = new SubSchedule(null, subScheduleDTO.getSubScheduleName(),
-					subScheduleDTO.getSubScheduleIndex(), subScheduleDTO.getSubScheduleType(),
-					subScheduleDTO.getCredit(), subScheduleDTO.getDebit(), subScheduleDTO.getSchedule());
+					subScheduleDTO.getSubScheduleType(), subScheduleDTO.getSubScheduleIndex(),
+					subScheduleDTO.getCredit(), subScheduleDTO.getDebit(), subScheduleDTO.getSchedule(),subScheduleDTO.getCreatedBy(),
+					subScheduleDTO.getCreatedOn(),
+					subScheduleDTO.getUpdatedBy(),subScheduleDTO.getUpdatedOn());
 			SubSchedule savedSubSchedule = subScheduleDao.save(subschedule);
 			return savedSubSchedule == null ? false : true;
 		} catch (Exception e) {

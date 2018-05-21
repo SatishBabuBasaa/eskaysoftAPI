@@ -2,7 +2,8 @@ package com.rest.eskaysoftAPI.dto;
 
 import java.io.Serializable;
 
-import com.rest.eskaysoftAPI.entity.Company;
+
+
 
 public class CompanyDTO implements Serializable {
 	/**

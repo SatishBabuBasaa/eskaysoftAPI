@@ -23,8 +23,9 @@ public class ScheduleServiceImpl implements ScheduleService {
 		if (schedules != null) {
 			scheduleList = new ArrayList<ScheduleDTO>();
 			for (Schedule schedule : schedules) {
-				ScheduleDTO scheduleDTO = new ScheduleDTO(schedule.getId(), schedule.getScheduleName(),
-						schedule.getScheduleIndex(), schedule.getScheduleType());
+				ScheduleDTO scheduleDTO = new ScheduleDTO(schedule.getScheduleId(), schedule.getScheduleName(),
+						schedule.getScheduleIndex(), schedule.getScheduleType(),schedule.getCreatedBy(),schedule.getCreatedOn(),
+						schedule.getUpdatedBy(),schedule.getUpdatedOn());
 				scheduleList.add(scheduleDTO);
 			}
 		}
@@ -38,6 +39,10 @@ public class ScheduleServiceImpl implements ScheduleService {
 			schedule.setScheduleIndex(scheduleDTO.getScheduleIndex());
 			schedule.setScheduleName(scheduleDTO.getScheduleName());
 			schedule.setScheduleType(scheduleDTO.getScheduleType());
+			schedule.setCreatedBy(scheduleDTO.getCreatedBy());
+			schedule.setCreatedOn(scheduleDTO.getCreatedOn());
+			schedule.setUpdatedBy(scheduleDTO.getUpdatedBy());
+			schedule.setUpdatedOn(scheduleDTO.getUpdatedOn());
 			schedule = scheduleDao.save(schedule);
 			if (null != schedule) {
 				return scheduleDTO;
@@ -50,7 +55,8 @@ public class ScheduleServiceImpl implements ScheduleService {
 	public boolean createSchedule(ScheduleDTO scheduleDTO) {
 		try {
 			Schedule schedule = new Schedule(scheduleDTO.getScheduleName(), scheduleDTO.getScheduleIndex(),
-					scheduleDTO.getScheduleType());
+					scheduleDTO.getScheduleType(),scheduleDTO.getCreatedBy(),scheduleDTO.getCreatedOn(),
+					scheduleDTO.getUpdatedBy(),scheduleDTO.getUpdatedOn());
 			Schedule savedSchedule = scheduleDao.save(schedule);
 			return savedSchedule == null ? false : true;
 		} catch (Exception e) {
@@ -74,8 +80,9 @@ public class ScheduleServiceImpl implements ScheduleService {
 	public ScheduleDTO getScheduleById(Long scheduleId) {
 		Schedule schedule = scheduleDao.findOne(scheduleId);
 		if (schedule != null) {
-			ScheduleDTO scheduleDTO = new ScheduleDTO(schedule.getId(), schedule.getScheduleName(),
-					schedule.getScheduleIndex(), schedule.getScheduleType());
+			ScheduleDTO scheduleDTO = new ScheduleDTO(schedule.getScheduleId(), schedule.getScheduleName(),
+					schedule.getScheduleIndex(), schedule.getScheduleType(),schedule.getCreatedBy(),schedule.getCreatedOn(),
+					schedule.getUpdatedBy(),schedule.getUpdatedOn());
 			return scheduleDTO;
 		}
 		return null;

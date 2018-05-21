@@ -25,7 +25,8 @@ public class ManfacturerServiceImpl implements ManfacturerService {
 		if (manfacturer != null) {
 			manfacturerList = new ArrayList<ManfacturerDTO>();
 			for (Manfacturer manfacturers : manfacturer) {
-				ManfacturerDTO manfacturerDTO = new ManfacturerDTO(manfacturers.getManfacturerId(), manfacturers.getManfacturerName());
+				ManfacturerDTO manfacturerDTO = new ManfacturerDTO(manfacturers.getManfacturerId(), manfacturers.getManfacturerName(),manfacturers.getCreatedBy(),
+						manfacturers.getUpdatedOn(),manfacturers.getUpdatedBy(),manfacturers.getCreatedOn());
 				manfacturerList.add(manfacturerDTO);
 			}
 		}
@@ -37,6 +38,10 @@ public class ManfacturerServiceImpl implements ManfacturerService {
 		Manfacturer manfacturer = manfacturerDao.findOne(manfacturerDTO.getManfacturerId());
 		if (manfacturer != null) {
 			manfacturer.setManfacturerName(manfacturerDTO.getManfacturerName());
+			manfacturer.setCreatedBy(manfacturerDTO.getCreatedBy());
+			manfacturer.setCreatedOn(manfacturerDTO.getCreatedOn());
+			manfacturer.setUpdatedBy(manfacturerDTO.getUpdatedBy());
+			manfacturer.setUpdatedOn(manfacturerDTO.getUpdatedOn());
 			manfacturer = manfacturerDao.save(manfacturer);
 			if (null != manfacturer) {
 				return manfacturerDTO;
@@ -48,7 +53,8 @@ public class ManfacturerServiceImpl implements ManfacturerService {
 	@Override
 	public boolean createManfacturer(ManfacturerDTO manfacturerDTO) {
 		try {
-			Manfacturer manfacturer = new Manfacturer(manfacturerDTO.getManfacturerName());
+			Manfacturer manfacturer = new Manfacturer(manfacturerDTO.getManfacturerName(),manfacturerDTO.getCreatedBy(),manfacturerDTO.getCreatedOn(),
+					manfacturerDTO.getUpdatedBy(),manfacturerDTO.getUpdatedOn());
 			Manfacturer savedManfacturer = manfacturerDao.save(manfacturer);
 			return savedManfacturer == null ? false : true;
 		} catch (Exception e) {
@@ -72,7 +78,8 @@ public class ManfacturerServiceImpl implements ManfacturerService {
 	public ManfacturerDTO getManfacturerById(Long manfacturerId) {
 		Manfacturer manfacturer = manfacturerDao.findOne(manfacturerId);
 		if (manfacturer != null) {
-			ManfacturerDTO manfacturerDTO = new ManfacturerDTO(manfacturer.getManfacturerId(), manfacturer.getManfacturerName());
+			ManfacturerDTO manfacturerDTO = new ManfacturerDTO(manfacturer.getManfacturerId(), manfacturer.getManfacturerName(),manfacturer.getCreatedBy(),manfacturer.getCreatedOn(),
+					manfacturer.getUpdatedBy(),manfacturer.getUpdatedOn());
 			return manfacturerDTO;
 		}
 		return null;

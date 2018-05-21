@@ -1,5 +1,8 @@
 package com.rest.eskaysoftAPI.dto;
 
+import java.util.Date;
+
+
 import javax.persistence.CascadeType;
 
 import javax.persistence.ManyToOne;
@@ -24,14 +27,20 @@ public class ProductDTO {
 	private Long SchemeQty;
 	private String Free;
 	private float Tax;
+	private String createdBy;
+	private Date createdOn;
+	private String updatedBy;
+	private Date updatedOn;
 
 	public ProductDTO() {
 		super();
 	}
 
+
 	public ProductDTO(Long productId, String productCode, String productName, String packing, Long boxQty,
 			ProductGroup group, Long caseQty, ProductCategory category, Long netRate, String isNetRateItem,
-			Long schemeQty, String free, float tax) {
+			Long schemeQty, String free, float tax, String createdBy, Date createdOn, String updatedBy,
+			Date updatedOn) {
 		super();
 		ProductId = productId;
 		ProductCode = productCode;
@@ -46,11 +55,18 @@ public class ProductDTO {
 		SchemeQty = schemeQty;
 		Free = free;
 		Tax = tax;
+		this.createdBy = createdBy;
+		this.createdOn = createdOn;
+		this.updatedBy = updatedBy;
+		this.updatedOn = updatedOn;
 	}
+
+
+	
 
 	public ProductDTO(String productCode, String productName, String packing, Long boxQty, ProductGroup group,
 			Long caseQty, ProductCategory category, Long netRate, String isNetRateItem, Long schemeQty, String free,
-			float tax) {
+			float tax, String createdBy, Date createdOn, String updatedBy, Date updatedOn) {
 		super();
 		ProductCode = productCode;
 		ProductName = productName;
@@ -64,7 +80,12 @@ public class ProductDTO {
 		SchemeQty = schemeQty;
 		Free = free;
 		Tax = tax;
+		this.createdBy = createdBy;
+		this.createdOn = createdOn;
+		this.updatedBy = updatedBy;
+		this.updatedOn = updatedOn;
 	}
+
 
 	/**
 	 * @return the productId
@@ -260,5 +281,70 @@ public class ProductDTO {
 	public void setTax(float tax) {
 		Tax = tax;
 	}
+
+
+	/**
+	 * @return the createdBy
+	 */
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+
+	/**
+	 * @param createdBy the createdBy to set
+	 */
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+
+	/**
+	 * @return the createdOn
+	 */
+	public Date getCreatedOn() {
+		return createdOn;
+	}
+
+
+	/**
+	 * @param createdOn the createdOn to set
+	 */
+	public void setCreatedOn(Date createdOn) {
+		this.createdOn = createdOn;
+	}
+
+
+	/**
+	 * @return the updatedBy
+	 */
+	public String getUpdatedBy() {
+		return updatedBy;
+	}
+
+
+	/**
+	 * @param updatedBy the updatedBy to set
+	 */
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+
+	/**
+	 * @return the updatedOn
+	 */
+	public Date getUpdatedOn() {
+		return updatedOn;
+	}
+
+
+	/**
+	 * @param updatedOn the updatedOn to set
+	 */
+	public void setUpdatedOn(Date updatedOn) {
+		this.updatedOn = updatedOn;
+	}
+	
 
 }

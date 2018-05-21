@@ -1,5 +1,7 @@
 package com.rest.eskaysoftAPI.entity;
 
+import java.util.Date;
+
 import javax.persistence.CascadeType;
 
 import javax.persistence.Entity;
@@ -9,6 +11,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "purchaseEntry")
@@ -57,14 +64,15 @@ public class PurchaseEntry {
 	private float DebitAdjustmentValue;
 	private float CreditAdjustmentValue;
 	private float InvoiceValue;
-	
-
+	private String createdBy;
+	private Date createdOn;
+	private String updatedBy;
+	private Date updatedOn;
 
 	public PurchaseEntry() {
 		super();
 	}
 
-	
 	public PurchaseEntry(Long purchaseId, Long purchaseNumber, Long invoiceNumber, String supplier, String gSTIN,
 			Long wayBillNumber, String transport, String cS, String date, String invoiceDate, String mode,
 			Long lRNumber, String lRDate, String deliveredForm, Product product, String batch, String expiry,
@@ -72,7 +80,8 @@ public class PurchaseEntry {
 			float mRP, String mfgName, float grossValue, float discountValue, float taxValue, float netValue,
 			float gSTPercent, String taxable, float cGSTAmount, float sGSTAmount, Long debitAdjustmentLedger,
 			Long creditAdjustmentLedger, String remarks, float debitAdjustmentValue, float creditAdjustmentValue,
-			float invoiceValue) {
+			float invoiceValue, String createdBy, java.util.Date createdOn, String updatedBy,
+			java.util.Date updatedOn) {
 		super();
 		PurchaseId = purchaseId;
 		PurchaseNumber = purchaseNumber;
@@ -114,11 +123,11 @@ public class PurchaseEntry {
 		DebitAdjustmentValue = debitAdjustmentValue;
 		CreditAdjustmentValue = creditAdjustmentValue;
 		InvoiceValue = invoiceValue;
+		this.createdBy = createdBy;
+		this.createdOn = createdOn;
+		this.updatedBy = updatedBy;
+		this.updatedOn = updatedOn;
 	}
-
-
-	
-
 
 	public PurchaseEntry(Long purchaseNumber, Long invoiceNumber, String supplier, String gSTIN, Long wayBillNumber,
 			String transport, String cS, String date, String invoiceDate, String mode, Long lRNumber, String lRDate,
@@ -126,7 +135,8 @@ public class PurchaseEntry {
 			float grsValue, float discount, float pTD, float saleRate, String hSN, float mRP, String mfgName,
 			float grossValue, float discountValue, float taxValue, float netValue, float gSTPercent, String taxable,
 			float cGSTAmount, float sGSTAmount, Long debitAdjustmentLedger, Long creditAdjustmentLedger, String remarks,
-			float debitAdjustmentValue, float creditAdjustmentValue, float invoiceValue) {
+			float debitAdjustmentValue, float creditAdjustmentValue, float invoiceValue, String createdBy,
+			java.util.Date createdOn, String updatedBy, java.util.Date updatedOn) {
 		super();
 		PurchaseNumber = purchaseNumber;
 		InvoiceNumber = invoiceNumber;
@@ -167,8 +177,11 @@ public class PurchaseEntry {
 		DebitAdjustmentValue = debitAdjustmentValue;
 		CreditAdjustmentValue = creditAdjustmentValue;
 		InvoiceValue = invoiceValue;
+		this.createdBy = createdBy;
+		this.createdOn = createdOn;
+		this.updatedBy = updatedBy;
+		this.updatedOn = updatedOn;
 	}
-
 
 	/**
 	 * @return the purchaseId
@@ -177,14 +190,13 @@ public class PurchaseEntry {
 		return PurchaseId;
 	}
 
-
 	/**
-	 * @param purchaseId the purchaseId to set
+	 * @param purchaseId
+	 *            the purchaseId to set
 	 */
 	public void setPurchaseId(Long purchaseId) {
 		PurchaseId = purchaseId;
 	}
-
 
 	/**
 	 * @return the purchaseNumber
@@ -193,14 +205,13 @@ public class PurchaseEntry {
 		return PurchaseNumber;
 	}
 
-
 	/**
-	 * @param purchaseNumber the purchaseNumber to set
+	 * @param purchaseNumber
+	 *            the purchaseNumber to set
 	 */
 	public void setPurchaseNumber(Long purchaseNumber) {
 		PurchaseNumber = purchaseNumber;
 	}
-
 
 	/**
 	 * @return the invoiceNumber
@@ -209,14 +220,13 @@ public class PurchaseEntry {
 		return InvoiceNumber;
 	}
 
-
 	/**
-	 * @param invoiceNumber the invoiceNumber to set
+	 * @param invoiceNumber
+	 *            the invoiceNumber to set
 	 */
 	public void setInvoiceNumber(Long invoiceNumber) {
 		InvoiceNumber = invoiceNumber;
 	}
-
 
 	/**
 	 * @return the supplier
@@ -225,14 +235,13 @@ public class PurchaseEntry {
 		return Supplier;
 	}
 
-
 	/**
-	 * @param supplier the supplier to set
+	 * @param supplier
+	 *            the supplier to set
 	 */
 	public void setSupplier(String supplier) {
 		Supplier = supplier;
 	}
-
 
 	/**
 	 * @return the gSTIN
@@ -241,14 +250,13 @@ public class PurchaseEntry {
 		return GSTIN;
 	}
 
-
 	/**
-	 * @param gSTIN the gSTIN to set
+	 * @param gSTIN
+	 *            the gSTIN to set
 	 */
 	public void setGSTIN(String gSTIN) {
 		GSTIN = gSTIN;
 	}
-
 
 	/**
 	 * @return the wayBillNumber
@@ -257,14 +265,13 @@ public class PurchaseEntry {
 		return WayBillNumber;
 	}
 
-
 	/**
-	 * @param wayBillNumber the wayBillNumber to set
+	 * @param wayBillNumber
+	 *            the wayBillNumber to set
 	 */
 	public void setWayBillNumber(Long wayBillNumber) {
 		WayBillNumber = wayBillNumber;
 	}
-
 
 	/**
 	 * @return the transport
@@ -273,14 +280,13 @@ public class PurchaseEntry {
 		return Transport;
 	}
 
-
 	/**
-	 * @param transport the transport to set
+	 * @param transport
+	 *            the transport to set
 	 */
 	public void setTransport(String transport) {
 		Transport = transport;
 	}
-
 
 	/**
 	 * @return the cS
@@ -289,14 +295,13 @@ public class PurchaseEntry {
 		return CS;
 	}
 
-
 	/**
-	 * @param cS the cS to set
+	 * @param cS
+	 *            the cS to set
 	 */
 	public void setCS(String cS) {
 		CS = cS;
 	}
-
 
 	/**
 	 * @return the date
@@ -305,14 +310,13 @@ public class PurchaseEntry {
 		return Date;
 	}
 
-
 	/**
-	 * @param date the date to set
+	 * @param date
+	 *            the date to set
 	 */
 	public void setDate(String date) {
 		Date = date;
 	}
-
 
 	/**
 	 * @return the invoiceDate
@@ -321,14 +325,13 @@ public class PurchaseEntry {
 		return InvoiceDate;
 	}
 
-
 	/**
-	 * @param invoiceDate the invoiceDate to set
+	 * @param invoiceDate
+	 *            the invoiceDate to set
 	 */
 	public void setInvoiceDate(String invoiceDate) {
 		InvoiceDate = invoiceDate;
 	}
-
 
 	/**
 	 * @return the mode
@@ -337,14 +340,13 @@ public class PurchaseEntry {
 		return Mode;
 	}
 
-
 	/**
-	 * @param mode the mode to set
+	 * @param mode
+	 *            the mode to set
 	 */
 	public void setMode(String mode) {
 		Mode = mode;
 	}
-
 
 	/**
 	 * @return the lRNumber
@@ -353,14 +355,13 @@ public class PurchaseEntry {
 		return LRNumber;
 	}
 
-
 	/**
-	 * @param lRNumber the lRNumber to set
+	 * @param lRNumber
+	 *            the lRNumber to set
 	 */
 	public void setLRNumber(Long lRNumber) {
 		LRNumber = lRNumber;
 	}
-
 
 	/**
 	 * @return the lRDate
@@ -369,14 +370,13 @@ public class PurchaseEntry {
 		return LRDate;
 	}
 
-
 	/**
-	 * @param lRDate the lRDate to set
+	 * @param lRDate
+	 *            the lRDate to set
 	 */
 	public void setLRDate(String lRDate) {
 		LRDate = lRDate;
 	}
-
 
 	/**
 	 * @return the deliveredForm
@@ -385,14 +385,13 @@ public class PurchaseEntry {
 		return DeliveredForm;
 	}
 
-
 	/**
-	 * @param deliveredForm the deliveredForm to set
+	 * @param deliveredForm
+	 *            the deliveredForm to set
 	 */
 	public void setDeliveredForm(String deliveredForm) {
 		DeliveredForm = deliveredForm;
 	}
-
 
 	/**
 	 * @return the product
@@ -401,14 +400,13 @@ public class PurchaseEntry {
 		return product;
 	}
 
-
 	/**
-	 * @param product the product to set
+	 * @param product
+	 *            the product to set
 	 */
 	public void setProduct(Product product) {
 		this.product = product;
 	}
-
 
 	/**
 	 * @return the batch
@@ -417,14 +415,13 @@ public class PurchaseEntry {
 		return Batch;
 	}
 
-
 	/**
-	 * @param batch the batch to set
+	 * @param batch
+	 *            the batch to set
 	 */
 	public void setBatch(String batch) {
 		Batch = batch;
 	}
-
 
 	/**
 	 * @return the expiry
@@ -433,14 +430,13 @@ public class PurchaseEntry {
 		return Expiry;
 	}
 
-
 	/**
-	 * @param expiry the expiry to set
+	 * @param expiry
+	 *            the expiry to set
 	 */
 	public void setExpiry(String expiry) {
 		Expiry = expiry;
 	}
-
 
 	/**
 	 * @return the quantity
@@ -449,14 +445,13 @@ public class PurchaseEntry {
 		return Quantity;
 	}
 
-
 	/**
-	 * @param quantity the quantity to set
+	 * @param quantity
+	 *            the quantity to set
 	 */
 	public void setQuantity(String quantity) {
 		Quantity = quantity;
 	}
-
 
 	/**
 	 * @return the otherCharges
@@ -465,14 +460,13 @@ public class PurchaseEntry {
 		return OtherCharges;
 	}
 
-
 	/**
-	 * @param otherCharges the otherCharges to set
+	 * @param otherCharges
+	 *            the otherCharges to set
 	 */
 	public void setOtherCharges(float otherCharges) {
 		OtherCharges = otherCharges;
 	}
-
 
 	/**
 	 * @return the grsValue
@@ -481,14 +475,13 @@ public class PurchaseEntry {
 		return GrsValue;
 	}
 
-
 	/**
-	 * @param grsValue the grsValue to set
+	 * @param grsValue
+	 *            the grsValue to set
 	 */
 	public void setGrsValue(float grsValue) {
 		GrsValue = grsValue;
 	}
-
 
 	/**
 	 * @return the discount
@@ -497,14 +490,13 @@ public class PurchaseEntry {
 		return Discount;
 	}
 
-
 	/**
-	 * @param discount the discount to set
+	 * @param discount
+	 *            the discount to set
 	 */
 	public void setDiscount(float discount) {
 		Discount = discount;
 	}
-
 
 	/**
 	 * @return the pTD
@@ -513,14 +505,13 @@ public class PurchaseEntry {
 		return PTD;
 	}
 
-
 	/**
-	 * @param pTD the pTD to set
+	 * @param pTD
+	 *            the pTD to set
 	 */
 	public void setPTD(float pTD) {
 		PTD = pTD;
 	}
-
 
 	/**
 	 * @return the saleRate
@@ -529,14 +520,13 @@ public class PurchaseEntry {
 		return SaleRate;
 	}
 
-
 	/**
-	 * @param saleRate the saleRate to set
+	 * @param saleRate
+	 *            the saleRate to set
 	 */
 	public void setSaleRate(float saleRate) {
 		SaleRate = saleRate;
 	}
-
 
 	/**
 	 * @return the hSN
@@ -545,14 +535,13 @@ public class PurchaseEntry {
 		return HSN;
 	}
 
-
 	/**
-	 * @param hSN the hSN to set
+	 * @param hSN
+	 *            the hSN to set
 	 */
 	public void setHSN(String hSN) {
 		HSN = hSN;
 	}
-
 
 	/**
 	 * @return the mRP
@@ -561,14 +550,13 @@ public class PurchaseEntry {
 		return MRP;
 	}
 
-
 	/**
-	 * @param mRP the mRP to set
+	 * @param mRP
+	 *            the mRP to set
 	 */
 	public void setMRP(float mRP) {
 		MRP = mRP;
 	}
-
 
 	/**
 	 * @return the mfgName
@@ -577,14 +565,13 @@ public class PurchaseEntry {
 		return MfgName;
 	}
 
-
 	/**
-	 * @param mfgName the mfgName to set
+	 * @param mfgName
+	 *            the mfgName to set
 	 */
 	public void setMfgName(String mfgName) {
 		MfgName = mfgName;
 	}
-
 
 	/**
 	 * @return the grossValue
@@ -593,14 +580,13 @@ public class PurchaseEntry {
 		return GrossValue;
 	}
 
-
 	/**
-	 * @param grossValue the grossValue to set
+	 * @param grossValue
+	 *            the grossValue to set
 	 */
 	public void setGrossValue(float grossValue) {
 		GrossValue = grossValue;
 	}
-
 
 	/**
 	 * @return the discountValue
@@ -609,14 +595,13 @@ public class PurchaseEntry {
 		return DiscountValue;
 	}
 
-
 	/**
-	 * @param discountValue the discountValue to set
+	 * @param discountValue
+	 *            the discountValue to set
 	 */
 	public void setDiscountValue(float discountValue) {
 		DiscountValue = discountValue;
 	}
-
 
 	/**
 	 * @return the taxValue
@@ -625,14 +610,13 @@ public class PurchaseEntry {
 		return TaxValue;
 	}
 
-
 	/**
-	 * @param taxValue the taxValue to set
+	 * @param taxValue
+	 *            the taxValue to set
 	 */
 	public void setTaxValue(float taxValue) {
 		TaxValue = taxValue;
 	}
-
 
 	/**
 	 * @return the netValue
@@ -641,14 +625,13 @@ public class PurchaseEntry {
 		return NetValue;
 	}
 
-
 	/**
-	 * @param netValue the netValue to set
+	 * @param netValue
+	 *            the netValue to set
 	 */
 	public void setNetValue(float netValue) {
 		NetValue = netValue;
 	}
-
 
 	/**
 	 * @return the gSTPercent
@@ -657,14 +640,13 @@ public class PurchaseEntry {
 		return GSTPercent;
 	}
 
-
 	/**
-	 * @param gSTPercent the gSTPercent to set
+	 * @param gSTPercent
+	 *            the gSTPercent to set
 	 */
 	public void setGSTPercent(float gSTPercent) {
 		GSTPercent = gSTPercent;
 	}
-
 
 	/**
 	 * @return the taxable
@@ -673,14 +655,13 @@ public class PurchaseEntry {
 		return Taxable;
 	}
 
-
 	/**
-	 * @param taxable the taxable to set
+	 * @param taxable
+	 *            the taxable to set
 	 */
 	public void setTaxable(String taxable) {
 		Taxable = taxable;
 	}
-
 
 	/**
 	 * @return the cGSTAmount
@@ -689,14 +670,13 @@ public class PurchaseEntry {
 		return CGSTAmount;
 	}
 
-
 	/**
-	 * @param cGSTAmount the cGSTAmount to set
+	 * @param cGSTAmount
+	 *            the cGSTAmount to set
 	 */
 	public void setCGSTAmount(float cGSTAmount) {
 		CGSTAmount = cGSTAmount;
 	}
-
 
 	/**
 	 * @return the sGSTAmount
@@ -705,14 +685,13 @@ public class PurchaseEntry {
 		return SGSTAmount;
 	}
 
-
 	/**
-	 * @param sGSTAmount the sGSTAmount to set
+	 * @param sGSTAmount
+	 *            the sGSTAmount to set
 	 */
 	public void setSGSTAmount(float sGSTAmount) {
 		SGSTAmount = sGSTAmount;
 	}
-
 
 	/**
 	 * @return the debitAdjustmentLedger
@@ -721,14 +700,13 @@ public class PurchaseEntry {
 		return DebitAdjustmentLedger;
 	}
 
-
 	/**
-	 * @param debitAdjustmentLedger the debitAdjustmentLedger to set
+	 * @param debitAdjustmentLedger
+	 *            the debitAdjustmentLedger to set
 	 */
 	public void setDebitAdjustmentLedger(Long debitAdjustmentLedger) {
 		DebitAdjustmentLedger = debitAdjustmentLedger;
 	}
-
 
 	/**
 	 * @return the creditAdjustmentLedger
@@ -737,14 +715,13 @@ public class PurchaseEntry {
 		return CreditAdjustmentLedger;
 	}
 
-
 	/**
-	 * @param creditAdjustmentLedger the creditAdjustmentLedger to set
+	 * @param creditAdjustmentLedger
+	 *            the creditAdjustmentLedger to set
 	 */
 	public void setCreditAdjustmentLedger(Long creditAdjustmentLedger) {
 		CreditAdjustmentLedger = creditAdjustmentLedger;
 	}
-
 
 	/**
 	 * @return the remarks
@@ -753,14 +730,13 @@ public class PurchaseEntry {
 		return Remarks;
 	}
 
-
 	/**
-	 * @param remarks the remarks to set
+	 * @param remarks
+	 *            the remarks to set
 	 */
 	public void setRemarks(String remarks) {
 		Remarks = remarks;
 	}
-
 
 	/**
 	 * @return the debitAdjustmentValue
@@ -769,14 +745,13 @@ public class PurchaseEntry {
 		return DebitAdjustmentValue;
 	}
 
-
 	/**
-	 * @param debitAdjustmentValue the debitAdjustmentValue to set
+	 * @param debitAdjustmentValue
+	 *            the debitAdjustmentValue to set
 	 */
 	public void setDebitAdjustmentValue(float debitAdjustmentValue) {
 		DebitAdjustmentValue = debitAdjustmentValue;
 	}
-
 
 	/**
 	 * @return the creditAdjustmentValue
@@ -785,14 +760,13 @@ public class PurchaseEntry {
 		return CreditAdjustmentValue;
 	}
 
-
 	/**
-	 * @param creditAdjustmentValue the creditAdjustmentValue to set
+	 * @param creditAdjustmentValue
+	 *            the creditAdjustmentValue to set
 	 */
 	public void setCreditAdjustmentValue(float creditAdjustmentValue) {
 		CreditAdjustmentValue = creditAdjustmentValue;
 	}
-
 
 	/**
 	 * @return the invoiceValue
@@ -801,14 +775,72 @@ public class PurchaseEntry {
 		return InvoiceValue;
 	}
 
-
 	/**
-	 * @param invoiceValue the invoiceValue to set
+	 * @param invoiceValue
+	 *            the invoiceValue to set
 	 */
 	public void setInvoiceValue(float invoiceValue) {
 		InvoiceValue = invoiceValue;
 	}
 
+	/**
+	 * @return the createdBy
+	 */
+	public String getCreatedBy() {
+		return createdBy;
+	}
 
-	
+	/**
+	 * @param createdBy
+	 *            the createdBy to set
+	 */
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	/**
+	 * @return the createdOn
+	 */
+	public Date getCreatedOn() {
+		return createdOn;
+	}
+
+	/**
+	 * @param createdOn
+	 *            the createdOn to set
+	 */
+	public void setCreatedOn(Date createdOn) {
+		this.createdOn = createdOn;
+	}
+
+	/**
+	 * @return the updatedBy
+	 */
+	public String getUpdatedBy() {
+		return updatedBy;
+	}
+
+	/**
+	 * @param updatedBy
+	 *            the updatedBy to set
+	 */
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+	/**
+	 * @return the updatedOn
+	 */
+	public Date getUpdatedOn() {
+		return updatedOn;
+	}
+
+	/**
+	 * @param updatedOn
+	 *            the updatedOn to set
+	 */
+	public void setUpdatedOn(Date updatedOn) {
+		this.updatedOn = updatedOn;
+	}
+
 }

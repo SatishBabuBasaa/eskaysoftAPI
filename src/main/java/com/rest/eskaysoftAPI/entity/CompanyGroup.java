@@ -1,6 +1,7 @@
 package com.rest.eskaysoftAPI.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

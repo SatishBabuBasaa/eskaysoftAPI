@@ -26,7 +26,8 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
 			productcategoryList = new ArrayList<ProductCategoryDTO>();
 			for (ProductCategory productcategories : productcategory) {
 				ProductCategoryDTO productcategoryDTO = new ProductCategoryDTO(productcategories.getProductCategoryId(),
-						productcategories.getProductCategoryName());
+						productcategories.getProductCategoryName(),productcategories.getCreatedBy(),productcategories.getCreatedOn(),
+						productcategories.getUpdatedBy(),productcategories.getUpdatedOn());
 				productcategoryList.add(productcategoryDTO);
 			}
 		}
@@ -38,6 +39,11 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
 		ProductCategory productcategory = productCategoryDao.findOne(productcategoryDTO.getProductCategoryId());
 		if (productcategory != null) {
 			productcategory.setProductCategoryName(productcategoryDTO.getProductCategoryName());
+			productcategory.setCreatedBy(productcategoryDTO.getCreatedBy());
+			productcategory.setCreatedOn(productcategoryDTO.getCreatedOn());
+			productcategory.setUpdatedBy(productcategoryDTO.getUpdatedBy());
+			productcategory.setUpdatedOn(productcategoryDTO.getUpdatedOn());
+			
 			productcategory = productCategoryDao.save(productcategory);
 			if (null != productcategory) {
 				return productcategoryDTO;
@@ -49,7 +55,9 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
 	@Override
 	public boolean createProductCategory(ProductCategoryDTO productcategoryDTO) {
 		try {
-			ProductCategory productcategory = new ProductCategory(productcategoryDTO.getProductCategoryName());
+			ProductCategory productcategory = new ProductCategory(productcategoryDTO.getProductCategoryName(),
+					productcategoryDTO.getCreatedBy(),productcategoryDTO.getCreatedOn(),productcategoryDTO.getUpdatedBy(),
+					productcategoryDTO.getUpdatedOn());
 			ProductCategory savedProductCategory = productCategoryDao.save(productcategory);
 			return savedProductCategory == null ? false : true;
 		} catch (Exception e) {
@@ -75,7 +83,8 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
 		ProductCategory productcategory = productCategoryDao.findOne(productCategoryId);
 		if (productcategory != null) {
 			ProductCategoryDTO productcategoryDTO = new ProductCategoryDTO(productcategory.getProductCategoryId(),
-					productcategory.getProductCategoryName());
+					productcategory.getProductCategoryName(),productcategory.getCreatedBy(),productcategory.getCreatedOn(),
+					productcategory.getUpdatedBy(),productcategory.getUpdatedOn());
 			return productcategoryDTO;
 		}
 		return null;

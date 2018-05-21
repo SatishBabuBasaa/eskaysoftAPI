@@ -1,4 +1,6 @@
 package com.rest.eskaysoftAPI.entity;
+import java.util.Date;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,24 +26,19 @@ public class SubSchedule {
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "scheduleId")
 	private Schedule schedule;
+	private String createdBy;
+	private Date createdOn;
+	private String updatedBy;
+	private Date updatedOn;
 
 	public SubSchedule() {
 
 	}
 
-	public SubSchedule(String subScheduleName, String subScheduleType, Long subScheduleIndex, float credit, float debit,
-			Schedule schedule) {
-		super();
-		this.subScheduleName = subScheduleName;
-		this.subScheduleType = subScheduleType;
-		this.subScheduleIndex = subScheduleIndex;
-		this.credit = credit;
-		this.debit = debit;
-		this.schedule = schedule;
-	}
-
-	public SubSchedule(Long subScheduleId, String subScheduleName, Long subScheduleIndex, String subScheduleType,
-			float credit, float debit, Schedule schedule) {
+	
+	public SubSchedule(Long subScheduleId, String subScheduleName, String subScheduleType, Long subScheduleIndex,
+			float credit, float debit, Schedule schedule, String createdBy, Date createdOn, String updatedBy,
+			Date updatedOn) {
 		super();
 		this.subScheduleId = subScheduleId;
 		this.subScheduleName = subScheduleName;
@@ -50,7 +47,29 @@ public class SubSchedule {
 		this.credit = credit;
 		this.debit = debit;
 		this.schedule = schedule;
+		this.createdBy = createdBy;
+		this.createdOn = createdOn;
+		this.updatedBy = updatedBy;
+		this.updatedOn = updatedOn;
 	}
+
+
+
+	public SubSchedule(String subScheduleName, String subScheduleType, Long subScheduleIndex, float credit, float debit,
+			Schedule schedule, String createdBy, Date createdOn, String updatedBy, Date updatedOn) {
+		super();
+		this.subScheduleName = subScheduleName;
+		this.subScheduleType = subScheduleType;
+		this.subScheduleIndex = subScheduleIndex;
+		this.credit = credit;
+		this.debit = debit;
+		this.schedule = schedule;
+		this.createdBy = createdBy;
+		this.createdOn = createdOn;
+		this.updatedBy = updatedBy;
+		this.updatedOn = updatedOn;
+	}
+
 
 	/**
 	 * @return the schedule
@@ -114,4 +133,82 @@ public class SubSchedule {
 	public void setDebit(float debit) {
 		this.debit = debit;
 	}
+
+
+	/**
+	 * @return the createdBy
+	 */
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+
+	/**
+	 * @param createdBy the createdBy to set
+	 */
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+
+	
+
+
+
+
+	/**
+	 * @return the createdOn
+	 */
+	public Date getCreatedOn() {
+		return createdOn;
+	}
+
+
+	/**
+	 * @param createdOn the createdOn to set
+	 */
+	public void setCreatedOn(Date createdOn) {
+		this.createdOn = createdOn;
+	}
+
+
+	/**
+	 * @return the updatedBy
+	 */
+	public String getUpdatedBy() {
+		return updatedBy;
+	}
+
+
+	/**
+	 * @param updatedBy the updatedBy to set
+	 */
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+
+	/**
+	 * @return the updatedOn
+	 */
+	public Date getUpdatedOn() {
+		return updatedOn;
+	}
+
+
+	/**
+	 * @param updatedOn the updatedOn to set
+	 */
+	public void setUpdatedOn(Date updatedOn) {
+		this.updatedOn = updatedOn;
+	}
+
+
+	/**
+	 * @param subScheduleType the subScheduleType to set
+	 */
+	public void setSubScheduleType(String subScheduleType) {
+		this.subScheduleType = subScheduleType;
+	}
+	
 }

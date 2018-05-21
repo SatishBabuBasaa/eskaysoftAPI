@@ -1,5 +1,7 @@
 package com.rest.eskaysoftAPI.dto;
 
+import java.util.Date;
+
 import javax.persistence.CascadeType;
 
 import javax.persistence.JoinColumn;
@@ -19,14 +21,19 @@ public class SubScheduleDTO {
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "scheduleId")
 	private Schedule schedule;
+	private String createdBy;
+	private Date createdOn;
+	private String updatedBy;
+	private Date updatedOn;
 
 	public SubScheduleDTO() {
 
 	}
 
-	public SubScheduleDTO(Long subScheduleId, String subScheduleName, Long subScheduleIndex, String subScheduleType,
-			float credit, float debit, Schedule schedule) {
-
+	public SubScheduleDTO(Long subScheduleId, String subScheduleName, String subScheduleType, Long subScheduleIndex,
+			float credit, float debit, Schedule schedule, String createdBy, Date createdOn, String updatedBy,
+			Date updatedOn) {
+		super();
 		SubScheduleId = subScheduleId;
 		SubScheduleName = subScheduleName;
 		SubScheduleType = subScheduleType;
@@ -34,17 +41,25 @@ public class SubScheduleDTO {
 		Credit = credit;
 		Debit = debit;
 		this.schedule = schedule;
+		this.createdBy = createdBy;
+		this.createdOn = createdOn;
+		this.updatedBy = updatedBy;
+		this.updatedOn = updatedOn;
 	}
 
 	public SubScheduleDTO(String subScheduleName, String subScheduleType, Long subScheduleIndex, float credit,
-			float debit, Schedule schedule) {
-
+			float debit, Schedule schedule, String createdBy, Date createdOn, String updatedBy, Date updatedOn) {
+		super();
 		SubScheduleName = subScheduleName;
 		SubScheduleType = subScheduleType;
 		SubScheduleIndex = subScheduleIndex;
 		Credit = credit;
 		Debit = debit;
 		this.schedule = schedule;
+		this.createdBy = createdBy;
+		this.createdOn = createdOn;
+		this.updatedBy = updatedBy;
+		this.updatedOn = updatedOn;
 	}
 
 	/**
@@ -150,6 +165,66 @@ public class SubScheduleDTO {
 	 */
 	public void setSchedule(Schedule schedule) {
 		this.schedule = schedule;
+	}
+
+	/**
+	 * @return the createdBy
+	 */
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	/**
+	 * @param createdBy
+	 *            the createdBy to set
+	 */
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	/**
+	 * @return the createdOn
+	 */
+	public Date getCreatedOn() {
+		return createdOn;
+	}
+
+	/**
+	 * @param createdOn
+	 *            the createdOn to set
+	 */
+	public void setCreatedOn(Date createdOn) {
+		this.createdOn = createdOn;
+	}
+
+	/**
+	 * @return the updatedBy
+	 */
+	public String getUpdatedBy() {
+		return updatedBy;
+	}
+
+	/**
+	 * @param updatedBy
+	 *            the updatedBy to set
+	 */
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+	/**
+	 * @return the updatedOn
+	 */
+	public Date getUpdatedOn() {
+		return updatedOn;
+	}
+
+	/**
+	 * @param updatedOn
+	 *            the updatedOn to set
+	 */
+	public void setUpdatedOn(Date updatedOn) {
+		this.updatedOn = updatedOn;
 	}
 
 }

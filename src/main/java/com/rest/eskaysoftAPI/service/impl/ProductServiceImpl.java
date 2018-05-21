@@ -26,7 +26,8 @@ public class ProductServiceImpl implements ProductService {
 				ProductDTO productDTO = new ProductDTO(products.getProductId(), products.getProductCode(),
 						products.getProductName(), products.getPacking(), products.getBoxQty(), products.getGroup(),
 						products.getCaseQty(), products.getCategory(), products.getNetRate(),
-						products.getIsNetRateItem(), products.getSchemeQty(), products.getFree(), products.getTax());
+						products.getIsNetRateItem(), products.getSchemeQty(), products.getFree(), products.getTax(),
+						products.getCreatedBy(),products.getCreatedOn(),products.getUpdatedBy(),products.getUpdatedOn());
 				productList.add(productDTO);
 			}
 		}
@@ -41,7 +42,8 @@ public class ProductServiceImpl implements ProductService {
 			ProductDTO productDTO = new ProductDTO(product.getProductId(), product.getProductCode(),
 					product.getProductName(), product.getPacking(), product.getBoxQty(), product.getGroup(),
 					product.getCaseQty(), product.getCategory(), product.getNetRate(), product.getIsNetRateItem(),
-					product.getSchemeQty(), product.getFree(), product.getTax());
+					product.getSchemeQty(), product.getFree(), product.getTax(),product.getCreatedBy(),product.getCreatedOn(),
+					product.getUpdatedBy(),product.getUpdatedOn());
 			return productDTO;
 		}
 		return null;
@@ -64,6 +66,10 @@ public class ProductServiceImpl implements ProductService {
 			product.setSchemeQty(productDTO.getSchemeQty());
 			product.setFree(productDTO.getFree());
 			product.setTax(productDTO.getTax());
+			product.setCreatedBy(productDTO.getCreatedBy());
+			product.setCreatedOn(productDTO.getCreatedOn());
+			product.setUpdatedBy(productDTO.getUpdatedBy());
+			product.setUpdatedOn(productDTO.getUpdatedOn());
 
 			if (null != product) {
 				return productDTO;
@@ -79,7 +85,8 @@ public class ProductServiceImpl implements ProductService {
 			Product product = new Product(null, productDTO.getProductCode(), productDTO.getProductName(),
 					productDTO.getPacking(), productDTO.getBoxQty(), productDTO.getGroup(), productDTO.getCaseQty(),
 					productDTO.getCategory(), productDTO.getNetRate(), productDTO.getIsNetRateItem(),
-					productDTO.getSchemeQty(), productDTO.getFree(), productDTO.getTax());
+					productDTO.getSchemeQty(), productDTO.getFree(), productDTO.getTax(),
+					productDTO.getCreatedBy(),productDTO.getCreatedOn(),productDTO.getUpdatedBy(),productDTO.getUpdatedOn());
 			Product savedProduct = productDao.save(product);
 			return savedProduct == null ? false : true;
 		} catch (Exception e) {

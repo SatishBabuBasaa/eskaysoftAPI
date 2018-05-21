@@ -1,7 +1,7 @@
+
 package com.rest.eskaysoftAPI;
 
 import javax.sql.DataSource;
-
 
 import org.apache.catalina.startup.Tomcat;
 import org.springframework.boot.SpringApplication;
@@ -17,7 +17,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-
 
 @SpringBootApplication
 @EnableJpaAuditing

@@ -25,7 +25,7 @@ public class StateServiceImpl implements StateService {
 			stateList = new ArrayList<StateDTO>();
 			for (States state : states) {
 				StateDTO scheduleDTO = new StateDTO(state.getId(), state.getStateName(), state.getStateCode(),
-						state.getZone());
+						state.getZone(),state.getCreatedBy(),state.getCreatedOn(),state.getUpdatedBy(),state.getUpdatedOn());
 				stateList.add(scheduleDTO);
 			}
 		}
@@ -39,6 +39,10 @@ public class StateServiceImpl implements StateService {
 			state.setStateName(stateDTO.getStateName());
 			state.setStateCode(stateDTO.getStateCode());
 			state.setZone(stateDTO.getZone());
+			state.setCreatedBy(stateDTO.getCreatedBy());
+			state.setCreatedOn(stateDTO.getCreatedOn());
+			state.setUpdatedBy(stateDTO.getUpdatedBy());
+			state.setUpdatedOn(stateDTO.getUpdatedOn());
 			state = statesDao.save(state);
 			if (null != state) {
 				return stateDTO;
@@ -50,7 +54,8 @@ public class StateServiceImpl implements StateService {
 	@Override
 	public boolean createState(StateDTO stateDTO) {
 		try {
-			States state = new States(stateDTO.getStateName(), stateDTO.getStateCode(), stateDTO.getZone());
+			States state = new States(stateDTO.getStateName(), stateDTO.getStateCode(), stateDTO.getZone(),
+					stateDTO.getCreatedBy(),stateDTO.getCreatedOn(),stateDTO.getUpdatedBy(),stateDTO.getUpdatedOn());
 			States savedState = statesDao.save(state);
 			return savedState == null ? false : true;
 		} catch (Exception e) {
@@ -75,7 +80,7 @@ public class StateServiceImpl implements StateService {
 		States state = statesDao.findOne(id);
 		if (state != null) {
 			StateDTO stateDTO = new StateDTO(state.getId(), state.getStateName(), state.getStateCode(),
-					state.getZone());
+					state.getZone(),state.getCreatedBy(),state.getCreatedOn(),state.getUpdatedBy(),state.getUpdatedOn());
 			return stateDTO;
 		}
 		return null;
